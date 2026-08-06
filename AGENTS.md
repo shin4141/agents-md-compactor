@@ -20,19 +20,14 @@ operating discipline below.
 
 Current Gate:
 
-`GO — second private development audit with complete evidence bundle`
+`HOLD — fixed public-commit GPT and Fable review`
 
-The bounded continuation/compression repair, safe reduction-frontier repair,
-generated-router budget repair, exact historical qualification, and private
-audit evidence hardening are complete. The fixed historical corpus achieves
-30.9% actual active-file reduction without changing the accepted source
-frontier. The canonical metric is Unicode code points with LF and the trailing
-newline included. This Gate permits only the second private development audit using
-the complete local bundle and restartable record maintenance. It does not
-authorize Fable review, another classifier, router or product UI feature,
-external-corpus distribution measurement, release, publication, external-user
-testing, outreach, hosting, repository visibility changes, pricing, branding
-expansion, marketing claims, or scope expansion.
+The repository is PUBLIC for fixed-commit review; public visibility is not a
+Release or announcement. Product behavior and accepted evidence are frozen.
+This Gate permits only read-only review and separately authorized bounded
+remediation. It does not authorize a tag, GitHub Release, npm publication,
+announcement, screenshot regeneration, product expansion, classifier, router,
+or UI change, broader public claim, or any unapproved behavior change.
 
 Do not claim a stage complete from file existence, a running UI, partial
 generation, or a happy-path test alone. Each stage must record:
