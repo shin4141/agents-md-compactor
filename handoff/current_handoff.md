@@ -90,6 +90,22 @@ These audits have distinct scopes and must not be collapsed into one result.
 - Repair surface: PR #1, five documentary files only
 - No README, product source, screenshot, historical metric, or LICENSE change
 
+### GPT — final marker PR review
+
+- Final marker PR review head:
+  `f3d19b398dc2630b05ee78cfbcea6096b504f4cc`
+- Verdict: `PASS — ready for Shin merge authorization`
+- Established:
+  - exact feather-marker formatter syntax
+  - generated receipt contract
+  - declaration/non-proof boundary
+  - no token, cost, time, or performance claim
+  - 108 tests PASS
+  - evidence reproduction PASS
+  - 20,664 → 14,284 / 30.9% preserved
+  - package 32,383 / +56.7% preserved
+  - 41/28/13, 13/13, and 10 routes preserved
+
 ### Fable — pending
 
 Fable review has not begun. It is allowed only after the marker PR is merged
@@ -135,7 +151,7 @@ separate explicit decision after reading the complete conversation.
 **Current Gate:**
 
 - While PR #2 is unmerged:
-  `HOLD — bounded GPT review repair and Shin merge authorization`
+  `HOLD — Shin merge authorization`
 - After PR #2 merges:
   `HOLD — freeze the resulting main commit and conduct fixed-commit Fable review`
 
@@ -145,6 +161,8 @@ separate explicit decision after reading the complete conversation.
   `814f57aa187bd597169c8a137ac15d6915b6c562`.
 - Marker implementation branch:
   `codex/lightweight-guidance-receipt-v0-1`, based on that exact main commit.
+- Current reviewed marker PR head:
+  `f3d19b398dc2630b05ee78cfbcea6096b504f4cc`.
 - Once the separate marker PR is merged, its resulting main commit—not this
   branch or the PR #1 merge—becomes the sole fixed Fable review target.
 
@@ -155,17 +173,19 @@ separate Draft PR opened.
 
 **Missing Closure:**
 
-- GPT review of the marker PR;
 - Shin merge authorization;
 - resulting main commit freeze;
 - Fable read-only review; and
 - separate announcement decision.
 
-**Next Actor:** GPT review → Shin merge authorization → main freeze → Fable.
+**Next Actor:** Shin merge authorization → main freeze → Fable.
 
-**Next Safe Action:** Apply the two bounded GPT documentary corrections, push
-them to PR #2, and stop for final GPT review. After GPT PASS, only Shin may
-authorize merge.
+**Next Safe Action:** Await Shin's explicit merge authorization. If authorized,
+recheck that PR #2 still points exactly to
+`f3d19b398dc2630b05ee78cfbcea6096b504f4cc`, merge with a
+history-preserving merge commit, freeze the resulting `main` commit, and perform
+one immediate integration/determinism/no-write verification. Do not begin Fable
+review until that fixed main commit is recorded.
 
 **Rollback or Recheck Path:** Before marker merge, close the marker PR and
 delete its branch. After merge, if the immediate verified integration,
