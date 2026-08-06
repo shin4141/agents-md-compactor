@@ -24,14 +24,16 @@
 
 The clean public genesis, authorized sanitization, Apache-2.0 license,
 A-2 screenshots, automated tests, evidence reproduction, unauthenticated
-public-read verification, and the PR #1 documentary repair are complete. PR #1
-merged as `814f57aa187bd597169c8a137ac15d6915b6c562`; that merge commit is the
-fixed base of the separate Lightweight Guidance Receipt marker vertical.
+public-read verification, and both earlier PRs are complete. PR #1 merged as
+`814f57aa187bd597169c8a137ac15d6915b6c562`. The Lightweight Guidance Receipt
+marker PR #2 merged as canonical main
+`437c9f882493a015738d70e8cc89f063c547b2df`.
 
-This vertical changes only the deterministic receipt syntax and its bounded
-public presentation and evidence records. It does not add analytics,
-monitoring, token accounting, performance behavior, classifier behavior,
-routing behavior, source disposition changes, or guide-body changes.
+The marker is shipped in generated output as `🪶 Core only` or
+`🪶 Core + <guides actually read>`. It remains a declaration, not proof of
+guide reading or runtime compliance. Live user-equivalent dogfood has not
+begun. The current work is a documentation-only destination-specific capsule
+refit before that dogfood.
 
 ## Audit lineage
 
@@ -108,9 +110,10 @@ These audits have distinct scopes and must not be collapsed into one result.
 
 ### Fable — pending
 
-Fable review has not begun. It is allowed only after the marker PR is merged
-and the resulting main commit is frozen as the exact read-only review target;
-it must not review the earlier PR #1 merge commit.
+Fable review has not begun. Marker merge is complete, but Fable is no longer
+the immediate next step. The required order is capsule refit, ordinary-user-
+path live dogfood, isolated fresh-session observation, a separate fictional
+measured sample, and only then Fable read-only review.
 
 Fable must distinguish proven fixed-corpus facts; structurally plausible but
 unmeasured repeated-use and future-bloat value; and unsupported token, cost,
@@ -146,69 +149,58 @@ separate explicit decision after reading the complete conversation.
 ## Required handoff fields
 
 **Current Layer:**
-`V11 — Lightweight Guidance Receipt`
+`V11 — Reconnectable Forgetting / AGENTS.md Compactor`
 
 **Current Gate:**
-
-- While PR #2 is unmerged:
-  `HOLD — Shin merge authorization`
-- After PR #2 merges:
-  `HOLD — freeze the resulting main commit and conduct fixed-commit Fable review`
+`HOLD — destination-specific capsule refit before live user-equivalent dogfood`
 
 **Current Source of Truth:**
 
-- Verified post-PR #1 public `main` base:
-  `814f57aa187bd597169c8a137ac15d6915b6c562`.
-- Marker implementation branch:
-  `codex/lightweight-guidance-receipt-v0-1`, based on that exact main commit.
-- Reviewed marker implementation commit:
-  `f3d19b398dc2630b05ee78cfbcea6096b504f4cc`.
-- Subsequent commits are permitted only when they modify
-  `handoff/current_handoff.md` to record review or transition state.
-- The exact merge head must be resolved from live GitHub state immediately
-  before merge and verified against this rule.
-- Once the separate marker PR is merged, its resulting main commit—not this
-  branch or the PR #1 merge—becomes the sole fixed Fable review target.
+- Canonical product main:
+  `437c9f882493a015738d70e8cc89f063c547b2df`.
+- Capsule-refit branch:
+  `codex/v13-capsule-refit-before-dogfood`.
+- V13 capsule-standard source:
+  `shin4141/decision-os-v13-loopkit@c81b907951cb223106717b040aa2da034800d81d`.
+- Canonical durable Fit Audit record:
+  `docs/capsule_fit_audit.md`.
+- Conditional live sequence:
+  `docs/live_dogfood_protocol.md`.
 
-**Completion Line:** exact formatter syntax implemented; generated receipt
-contract updated; full tests PASS; historical evidence mechanically
-synchronized; 30.9% active-file result preserved; marker boundaries documented;
-separate Draft PR opened.
+**Completion Line:** A fresh Compactor session can reconstruct the destination,
+source/generated boundary, recursive-compaction gate, persistent dogfood setup,
+conditional routes, exclusions, `UNKNOWN`s, and the ordinary-user-path dogfood
+next step from repository-persistent instructions alone.
 
 **Missing Closure:**
 
-- Shin merge authorization;
-- resulting main commit freeze;
+- review and merge authorization for the capsule-refit Draft PR;
+- ordinary-user-path live Compactor dogfood;
+- isolated fresh-session receipt and actual-guide-use observation;
+- separate fictional `AGENTS.md` measured sample;
 - Fable read-only review; and
-- separate announcement decision.
+- any separately authorized announcement decision.
 
-**Next Actor:** Shin merge authorization → main freeze → Fable.
+**Next Owner:** The executing AI owns routine capsule-refit branch, validation,
+Draft PR, and handoff hygiene. Shin retains the final Seat and merge authority.
 
-**Next Safe Action:** Await Shin's explicit merge authorization. If authorized,
-resolve the exact current PR #2 head from GitHub immediately before merge and
-verify:
+**What the Receiving AI Now Owns:** Keep the capsule refit documentation-only,
+close review feedback on the same branch, preserve the Fit Audit record, and do
+not start live dogfood until the refit is accepted and merged.
 
-- the reviewed marker implementation commit
-  `f3d19b398dc2630b05ee78cfbcea6096b504f4cc` remains in its ancestry;
-- every later commit changes only `handoff/current_handoff.md`;
-- no README, source, tests, evidence, screenshots, or LICENSE changed after the
-  reviewed marker implementation commit;
-- PR #2 remains mergeable and targets `main`.
+**Next Authorized Action:** Review and, only with Shin's authorization, merge
+the documentation-only capsule-refit Draft PR. After merge, the next product
+step is ordinary-user-path dogfood following
+`docs/live_dogfood_protocol.md`; it is not Fable.
 
-Then merge using that live head as the expected head SHA, freeze the resulting
-`main` commit, and perform one immediate integration/determinism/no-write
-verification. Do not begin Fable review until that fixed main commit is
-recorded.
+**First One Action:** Inspect the capsule-refit Draft PR against
+`docs/capsule_fit_audit.md` and confirm that its changed files remain limited to
+authorized operating-instruction surfaces.
 
-This live-head resolution rule prevents review-attestation commits from creating
-an endless stale-SHA loop. It does not permit product or evidence changes after
-GPT PASS.
-
-**Rollback or Recheck Path:** Before marker merge, close the marker PR and
-delete its branch. After merge, if the immediate verified integration,
-determinism, or no-write check fails, perform one history-preserving revert,
-record it, and return to Shin. Do not repair forward inside that post-merge
-check.
+**Rollback or Recheck Path:** Before merge, close the refit PR and leave
+canonical main `437c9f882493a015738d70e8cc89f063c547b2df` unchanged. If a review
+finds a disposition or reconnect trigger unsupported, update the same Fit Audit
+record and remain `HOLD`; do not change product behavior in that repair.
 
 **Known Boundaries:** One historical corpus is not general performance. Unicode
 code points are not tokens. The complete package is larger than the source.
@@ -216,14 +208,13 @@ Routes and the receipt do not guarantee runtime compliance. No token, cost,
 latency, model-performance, safety, adoption, or public-release claim is
 established.
 
-**Do Not Continue Boundary:** Do not begin Fable review before PR #2 is merged
-and the resulting main commit is frozen as the exact review target. Do not
-change product behavior beyond this bounded receipt contract, classifier,
-router, privacy behavior, source dispositions, guide bodies, LICENSE,
-visibility, tags, GitHub Releases, npm publication, or announcements. Only the
-marker PR, read-only review, and separately authorized bounded remediation are
-allowed.
+**Do Not Continue Boundary:** Do not run Compactor on the refitted source
+`AGENTS.md`, replace it with generated output, add a feather marker manually,
+start the fictional sample, or begin Fable in this task. Do not change product
+behavior, classifier, router, UI, tests, evidence, screenshots, README claims,
+LICENSE, visibility, tags, GitHub Releases, npm publication, or announcements.
 
 **What must not be returned to the Decision Owner:** routine wording, checksum
 maintenance, test grouping, branch cleanup, deterministic evidence maintenance,
-or handoff hygiene.
+or handoff hygiene. Ask Shin only for a real direction, risk, public-claim,
+externalization, or merge decision.
