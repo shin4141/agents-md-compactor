@@ -161,8 +161,12 @@ separate explicit decision after reading the complete conversation.
   `814f57aa187bd597169c8a137ac15d6915b6c562`.
 - Marker implementation branch:
   `codex/lightweight-guidance-receipt-v0-1`, based on that exact main commit.
-- Current reviewed marker PR head:
+- Reviewed marker implementation commit:
   `f3d19b398dc2630b05ee78cfbcea6096b504f4cc`.
+- Subsequent commits are permitted only when they modify
+  `handoff/current_handoff.md` to record review or transition state.
+- The exact merge head must be resolved from live GitHub state immediately
+  before merge and verified against this rule.
 - Once the separate marker PR is merged, its resulting main commit—not this
   branch or the PR #1 merge—becomes the sole fixed Fable review target.
 
@@ -181,11 +185,24 @@ separate Draft PR opened.
 **Next Actor:** Shin merge authorization → main freeze → Fable.
 
 **Next Safe Action:** Await Shin's explicit merge authorization. If authorized,
-recheck that PR #2 still points exactly to
-`f3d19b398dc2630b05ee78cfbcea6096b504f4cc`, merge with a
-history-preserving merge commit, freeze the resulting `main` commit, and perform
-one immediate integration/determinism/no-write verification. Do not begin Fable
-review until that fixed main commit is recorded.
+resolve the exact current PR #2 head from GitHub immediately before merge and
+verify:
+
+- the reviewed marker implementation commit
+  `f3d19b398dc2630b05ee78cfbcea6096b504f4cc` remains in its ancestry;
+- every later commit changes only `handoff/current_handoff.md`;
+- no README, source, tests, evidence, screenshots, or LICENSE changed after the
+  reviewed marker implementation commit;
+- PR #2 remains mergeable and targets `main`.
+
+Then merge using that live head as the expected head SHA, freeze the resulting
+`main` commit, and perform one immediate integration/determinism/no-write
+verification. Do not begin Fable review until that fixed main commit is
+recorded.
+
+This live-head resolution rule prevents review-attestation commits from creating
+an endless stale-SHA loop. It does not permit product or evidence changes after
+GPT PASS.
 
 **Rollback or Recheck Path:** Before marker merge, close the marker PR and
 delete its branch. After merge, if the immediate verified integration,
