@@ -131,7 +131,11 @@ separate explicit decision after reading the complete conversation.
 `V9 — Fixed Public RC Review`
 
 **Current Gate:**
-`HOLD — PR #1 review and merge, then fixed-commit Fable review`
+
+- While PR #1 is unmerged:
+  `HOLD — PR #1 review and merge`
+- After PR #1 merges:
+  `HOLD — freeze the resulting main commit and conduct fixed-commit Fable review`
 
 **Current Source of Truth:**
 
@@ -178,12 +182,13 @@ Routes and the receipt do not guarantee runtime compliance. No token, cost,
 latency, model-performance, safety, adoption, or public-release claim is
 established.
 
-**Do Not Continue Boundary:** Do not merge PR #1 in this repair. Do not begin
-Fable review before PR #1 merges and its resulting main commit is frozen. Do
-not change product behavior, classifier, router, UI, privacy behavior,
-historical evidence, screenshots, README claims, LICENSE, visibility, tags,
-GitHub Releases, npm publication, or announcements. Only read-only review and
-separately authorized bounded remediation are allowed.
+**Do Not Continue Boundary:** While PR #1 is unmerged, do not begin Fable
+review. After PR #1 merges, do not begin Fable review until the resulting main
+commit is frozen as the exact review target. Do not change product behavior,
+classifier, router, UI, privacy behavior, historical evidence, screenshots,
+README claims, LICENSE, visibility, tags, GitHub Releases, npm publication, or
+announcements. Only read-only review and separately authorized bounded
+remediation are allowed.
 
 **What must not be returned to the Decision Owner:** routine wording, checksum
 maintenance, test grouping, branch cleanup, deterministic evidence maintenance,
