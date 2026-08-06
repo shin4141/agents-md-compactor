@@ -458,10 +458,10 @@ export function formatGuidanceReceipt(categories = []) {
     used.add(category);
   }
 
-  const ordered = RECEIPT_CATEGORIES.filter(
-    (category) => category === "core" || used.has(category),
-  );
-  return `🪶 ${ordered.join(" · ")}`;
+  const orderedGuides = GUIDE_CATEGORIES.filter((category) => used.has(category));
+  return orderedGuides.length === 0
+    ? "🪶 Core only"
+    : `🪶 Core + ${orderedGuides.join(" · ")}`;
 }
 
 function assertValidUnicode(value) {
@@ -1906,7 +1906,7 @@ function renderReceipt(guides) {
     orderedGuides.length === 0
       ? ""
       : ` Available guide order: ${orderedGuides.map((category) => `\`${category}\``).join(", ")}.`;
-  return `## Lightweight Guidance Receipt\n\nEnd each completed response with \`🪶 core\`, followed by guides actually read, in canonical order.${suffix} The receipt does not prove model compliance.`;
+  return `## Lightweight Guidance Receipt\n\nEnd every response with \`🪶 Core only\`, or \`🪶 Core + <guides actually read>\` using \` · \` in canonical order.${suffix} This is a declaration, not proof.`;
 }
 
 function renderGlobalRoute(route) {
@@ -2395,7 +2395,7 @@ function assertGeneratedInvariants(input, result) {
       "## Lightweight Guidance Receipt",
     ) !== 1 ||
     !result.activeAgentsMd.content.includes(
-      "End each completed response with `🪶 core`, followed by guides actually read, in canonical order.",
+      "End every response with `🪶 Core only`, or `🪶 Core + <guides actually read>` using ` · ` in canonical order.",
     )
   ) {
     malformed("active AGENTS.md is missing the receipt contract");

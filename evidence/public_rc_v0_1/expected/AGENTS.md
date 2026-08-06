@@ -331,4 +331,4 @@ A BLOCK record should state what must change before reconsideration.
 
 ## Lightweight Guidance Receipt
 
-End each completed response with `🪶 core`, followed by guides actually read, in canonical order. Available guide order: `handoff`, `other`. The receipt does not prove model compliance.
+End every response with `🪶 Core only`, or `🪶 Core + <guides actually read>` using ` · ` in canonical order. Available guide order: `handoff`, `other`. This is a declaration, not proof.

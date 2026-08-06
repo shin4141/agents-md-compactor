@@ -127,7 +127,7 @@ test("realistic bloated English, Japanese, and mixed fixtures compact in Balance
 test("guide receipt metadata does not duplicate the active receipt contract", () => {
   const result = compactAgentsMd(LARGE_FIXTURE, "Balanced");
   const activeRule =
-    "End each completed response with `🪶 core`, followed by guides actually read, in canonical order.";
+    "End every response with `🪶 Core only`, or `🪶 Core + <guides actually read>` using ` · ` in canonical order.";
 
   assert.ok(result.activeAgentsMd.content.includes(activeRule));
   for (const guide of result.guides) {

@@ -27,44 +27,44 @@ const FIXTURES = [
 
 const EXPECTED_HASHES = {
   "small-clean": {
-    Conservative: "0c7655d6395270aafa4723e28305ae6253c8d67286f205451b18c242c4132b24",
-    Balanced: "3fe8cd069594820b7dfa6ba797df1414cc7e61fcd53b0197326a1aaf40fc14e3",
-    Aggressive: "9265bdb342aa811eebdf3e472c7a9de9a6c8e7822462e4f4b51f718cb9f28d80",
+    Conservative: "eb7539408d8e65a455af272b4a4ff0850d5ea74db4158ac8e17779e8dbb108e9",
+    Balanced: "bb9bb328bb967ae643f99ad5cedab65d49b032b40a7dba83b633378ebd4682e4",
+    Aggressive: "5df4b938d918d4f8827b797711a212396e901c9aa329242c004d9f6039a2ab40",
   },
   "medium-specialist": {
-    Conservative: "cb7a8dc3b50a012f4c40f477440ff2c7a1235f7bf3574ca6f68e7f29542fe368",
-    Balanced: "21437ae1d7ffc0b9a04f0c58673e5b4a0f54f1e4719897e650452183354568e6",
-    Aggressive: "4eb562d6442dbc473c009246168ec02b8d462bcb8d838750c52525ea5302caf5",
+    Conservative: "0eca2c49a8c3c75c52a056203988f15838846f16a9a57811a40647a600ef0aea",
+    Balanced: "e0f19baf23e0b8ba0627fef7a1ae7bab9323b0a157f4728416db888805356742",
+    Aggressive: "60dd345e621efe014e236327e16fc48054b099f10907052e9d255848a750a348",
   },
   "large-bloated": {
-    Conservative: "06705c94de06b989beabd799cc8b9bb55a76418232ad7d0dd55a7cd91f0b425c",
-    Balanced: "0010268800344d4a7f1de17dca2d0b045454182eb3592e5b8e59420997f43401",
-    Aggressive: "542bd5497a3169d5b55cd48a77a76b9bc03bb13deef7aeea8302397ec62cf6ef",
+    Conservative: "df60a6ce2043ddb9bcf9a74eef8605e5ad56481786c7fc15563da5e970317522",
+    Balanced: "d488ec977953940fa7789aca96b810c0649ec38633144578a7ec10feafb6041b",
+    Aggressive: "5f26f0b3717ff8fb528581fccb83885a5e23ef0283acaf5a653d7c0047ab2a50",
   },
   "japanese-operations": {
-    Conservative: "782c2cb0272c8b9554336d21cd144cf5ddd61f58ed679458369235ae6370741e",
-    Balanced: "0ccb09bcbbbd0e0392beb2f9f931d294f6204465529630a6953b0cee9614fcd2",
-    Aggressive: "5b2f05b6a038a6f56b317a2d8e6a60d647896aa60693e81f47ae29144fb37b00",
+    Conservative: "46343c138914ade6e6f1a316969dba518aff0894d576d8ec41211e50bd92cc86",
+    Balanced: "e86e6237a8ea851b3c8b4ade1657b635661b8e22ef862761997cf76889d3cb30",
+    Aggressive: "eb2573765a138a4b0e115670fd4f24efc4baab2f77002d244689b68d0ed7dbb3",
   },
   "mixed-operations": {
-    Conservative: "11ce7cfaade2661941219b9a9f6c3276c071d72609eadc9e0750fd45073509db",
-    Balanced: "79eb6c9fd9ab453f788f0948f1b4b92375d14de7619a7608181d0cfcf5027c13",
-    Aggressive: "26280e8ab994f7c070fc98b5eef7a1af7296d9547c2b50b87b0c921cb4348e34",
+    Conservative: "6d3d4db743ddaa49bfb018995c031c76c52bdb435ee3f3776b45f70e23f0d955",
+    Balanced: "7ed49d3d509974dbd1eb97ef45e506994bae84a75bf39d871db1b024c8425788",
+    Aggressive: "9acd2afae3a87582a101e93edd710fe91f87e661ef0fb2e823950a6dc1cac9c1",
   },
   "realistic-large-english": {
-    Conservative: "c54dbd1cdde655da62d99c74aabb0d45c6c026004ccdda941e630d99015fd50a",
-    Balanced: "9c1865b7cd6ff7084335a7a321efc9ce37bd83c0be271d54e911cda3e3fb4ad9",
-    Aggressive: "95bc57f3860a3ea27f12239663246f2efc497f732aa507ac3932de40adaba501",
+    Conservative: "482b77be9346d6c64222ba3d94cf69266ce25a9981f62908859ebc0a03a0639d",
+    Balanced: "c4addea93f221a1824e9f31e79b57ce540f786857f2d15eb8d537b50b86a58ab",
+    Aggressive: "47150dbedcc7dd46a531feb6819bc027a897cb6ca277a85a1935a3e4b3f0a7e8",
   },
   "realistic-large-japanese": {
-    Conservative: "5c37f445700388ccc16b4866e6d529d4496c70d1b8729698ccd4a5d61ec63e7e",
-    Balanced: "a12cf77b5d80cc7265bbdcf25e47baaad0963670cb661eadbb56a29246a1c985",
-    Aggressive: "91fdfdf3b1360c0014c8b6f5a1f6adbb6bde5246ed042271e085f54aef0a493c",
+    Conservative: "a140b9fca3e179a64e5d57d0c9880639b198b0667cfad393570567cf33da002a",
+    Balanced: "316a992cb9ffdb98c29723ce871f29850708be7283f6f6397f2b8b15f6926b7f",
+    Aggressive: "7e0b022cb361923051875b852db9fba43365b3e310c3226399bf0809a2e1f20e",
   },
   "realistic-large-mixed": {
-    Conservative: "526f4e24e34465a17ec7d46c7fec4dca493088923dc99d09722d91242a0f0f3c",
-    Balanced: "d4d860c26d776cc38680e8d6e2485ca4fbce910ff2d67df3ffaf83ab6f5be837",
-    Aggressive: "ee981fe38102c23f042995ecb2c025e474412d52695e97defc253e3af1ab4422",
+    Conservative: "8ef2ea6bed64dae190ec2ecfec0021c1737be53a2285cf6476d34f497adcd2bb",
+    Balanced: "ab907467b706c9bd5fc40d3495e69d81d9386809c742cf3aa0f838bd80863ab3",
+    Aggressive: "69408b4f57ed6374d8b3f4e585f6d41e7e05fd015d16c47ee926d9822394be54",
   },
 };
 
@@ -177,12 +177,15 @@ function verifyFixtureResult(source, result) {
     result.activeAgentsMd.content.split("## Lightweight Guidance Receipt").length - 1,
     1,
   );
-  assert.match(result.activeAgentsMd.content, /does not prove model compliance/);
+  assert.match(result.activeAgentsMd.content, /This is a declaration, not proof\./);
   const receiptRule = result.activeAgentsMd.content
     .split("\n")
-    .find((line) => line.startsWith("End each completed response"));
+    .find((line) => line.startsWith("End every response"));
   assert.ok(receiptRule);
-  assert.match(receiptRule, /guides actually read, in canonical order/);
+  assert.match(
+    receiptRule,
+    /`🪶 Core only`, or `🪶 Core \+ <guides actually read>` using ` · ` in canonical order/,
+  );
   assert.ok(
     result.guides.every((guide) => receiptRule.includes(`\`${guide.category}\``)),
   );
@@ -438,22 +441,43 @@ test("malformed internal results fail visibly", () => {
   );
 });
 
-test("receipt category formatting keeps core first and normalizes duplicates", () => {
-  assert.equal(formatGuidanceReceipt([]), "🪶 core");
+test("receipt category formatting uses the approved Core marker syntax", () => {
+  assert.equal(formatGuidanceReceipt([]), "🪶 Core only");
+  assert.equal(formatGuidanceReceipt(["core"]), "🪶 Core only");
+  assert.equal(formatGuidanceReceipt(["testing"]), "🪶 Core + testing");
+  assert.equal(
+    formatGuidanceReceipt(["security", "release"]),
+    "🪶 Core + release · security",
+  );
   assert.equal(
     formatGuidanceReceipt([
+      "release",
       "security",
-      "testing",
-      "security",
-      "core",
       "release",
     ]),
-    "🪶 core · testing · release · security",
+    "🪶 Core + release · security",
   );
   assert.throws(
     () => formatGuidanceReceipt(["not-generated"]),
     /INVALID_RECEIPT: unknown receipt category/,
   );
+});
+
+test("a no-guide result requires the Core-only receipt without a guide suffix", () => {
+  const result = compactAgentsMd(
+    "# Core\n\nAlways retain this instruction.\n",
+    "Balanced",
+  );
+  const receipt = result.activeAgentsMd.content
+    .split("\n")
+    .find((line) => line.startsWith("End every response"));
+
+  assert.equal(result.guides.length, 0);
+  assert.equal(
+    receipt,
+    "End every response with `🪶 Core only`, or `🪶 Core + <guides actually read>` using ` · ` in canonical order. This is a declaration, not proof.",
+  );
+  assert.doesNotMatch(receipt, /Available guide order:/);
 });
 
 test("Japanese and mixed fixtures route recognized operational categories", () => {

@@ -16,7 +16,7 @@ const README = readFileSync(new URL("../README.md", import.meta.url), "utf8");
 const EVIDENCE_RECORD = readFileSync(new URL("EVIDENCE.md", EVIDENCE), "utf8");
 const MODES = ["Conservative", "Balanced", "Aggressive"];
 const ARTIFACT_HASHES = new Map([
-  ["AGENTS.md", "b60acc020ddad730ba7c7528dc9a98e349646c4eb47b24054ac4bf87bf1f3bfe"],
+  ["AGENTS.md", "934bfcb6355ddcb065e09da0071d1c5cac8b2d59ebdf6d3cc2bf0d8880652b35"],
   ["agent-guides/handoff.md", "7951186b3f6ca7d578c853e419df212e2cd0e2893fd57aa2c7bf1590968d5b39"],
   ["agent-guides/other.md", "68e32ca18e842676087e06f5e273c503dfbd4df4757a9daaf596cd8f58a598a5"],
   ["move-map.md", "745211070a2153d114b1e5dc646e79764ddcefb66393f0675185372f8e4ecd2c"],

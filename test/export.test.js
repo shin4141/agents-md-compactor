@@ -36,11 +36,11 @@ const UTF8_DECODER = new TextDecoder();
 const UTF8_ENCODER = new TextEncoder();
 const EXPECTED_REALISTIC_ZIP_HASHES = {
   "realistic-large-english":
-    "372f7947a8fce7002c5970b61a68cec953f3c99af8125264dddc472d15df0b5e",
+    "ae1bda1e409f0c961d972da2a2baf4d09df508b1e99dd06faa2c03b4ea4f0d95",
   "realistic-large-japanese":
-    "5bc017703bc251e61c514b4a5f336dc1d0d651a28243fcd0d468c5965cbba345",
+    "10fbe06f97273d664ca656c3850cd1b2ea6ed9650f44de0cc7ad91490b2970aa",
   "realistic-large-mixed":
-    "b307c35ea22b57ed3e949778051e53b365aa596cff9311aa4cbef3c7efcce8b1",
+    "47af9d8fdd97c9d743c05b40d8510d25d128b5807134ff29e927488df9f5e226",
 };
 
 function inspectStoredZip(bytes) {
