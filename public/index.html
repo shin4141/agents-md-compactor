@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AGENTS.md Compactor</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main>
+      <header class="page-header">
+        <p class="eyebrow">Local, in-memory tool</p>
+        <h1>AGENTS.md Compactor</h1>
+        <p class="lede">Separate the always-loaded core from guidance that is only needed for specific work.</p>
+
+        <nav aria-label="Compaction workflow">
+          <ol class="workflow-steps">
+            <li><span>1</span>Paste AGENTS.md</li>
+            <li><span>2</span>Choose a mode</li>
+            <li><span>3</span>Generate</li>
+            <li><span>4</span>Inspect the result</li>
+            <li><span>5</span>Review with your AI</li>
+            <li><span>6</span>Copy files or download ZIP</li>
+          </ol>
+        </nav>
+      </header>
+
+      <section class="panel input-panel" aria-labelledby="input-heading">
+        <div class="section-heading">
+          <span class="step-number" aria-hidden="true">1</span>
+          <div>
+            <h2 id="input-heading">Paste AGENTS.md</h2>
+            <p>Paste one file. Your source stays unchanged and only in this page.</p>
+          </div>
+        </div>
+
+        <form id="compactor-form">
+          <label for="source-agents-md">AGENTS.md source</label>
+          <textarea
+            id="source-agents-md"
+            rows="18"
+            spellcheck="false"
+            aria-describedby="source-help"
+            placeholder="# Paste your AGENTS.md here"
+          ></textarea>
+          <aside class="privacy-contract" aria-label="Local-only privacy contract">
+            <p><strong>Your AGENTS.md stays on your device.</strong></p>
+            <p><strong>No upload · No storage · No analytics · No training</strong></p>
+            <p>Processing happens locally in your browser. The shipped application does not transmit or persist your input, and contains no analytics, telemetry, or training-data collection.</p>
+            <p>Generate, preview, copy, review-package creation, and ZIP export run locally. “Review with Your AI” only copies a review package to your clipboard; the tool does not send it to an AI service.</p>
+            <p>If you choose to paste that package into another service, that service’s data policy applies. This boundary does not cover browser extensions, a compromised operating system, user-installed third-party modifications, or a service into which you manually paste content.</p>
+          </aside>
+          <p id="source-help" class="field-help">State is held in memory only. Nothing is written to your filesystem or browser storage unless you explicitly download the generated ZIP.</p>
+
+          <div class="mode-section">
+            <div class="section-heading section-heading-compact">
+              <span class="step-number" aria-hidden="true">2</span>
+              <div>
+                <h2>Choose a mode</h2>
+                <p>Choose how much task-specific guidance to route out of the active file.</p>
+              </div>
+            </div>
+
+            <label for="mode">Compaction mode</label>
+            <select id="mode" aria-describedby="mode-help">
+              <option value="Conservative">Conservative</option>
+              <option value="Balanced" selected>Balanced</option>
+              <option value="Aggressive">Aggressive</option>
+            </select>
+            <ul id="mode-help" class="mode-guide">
+              <li><strong>Conservative</strong> — keep more instructions active</li>
+              <li><strong>Balanced</strong> — route clear task-specific guidance</li>
+              <li><strong>Aggressive</strong> — keep the smallest active core</li>
+            </ul>
+          </div>
+
+          <div class="generate-action">
+            <span class="step-number" aria-hidden="true">3</span>
+            <button class="primary-button" type="submit">Generate</button>
+          </div>
+        </form>
+
+        <p id="error-output" class="message error" role="alert" aria-live="assertive" hidden></p>
+      </section>
+
+      <section id="results" class="panel results-panel" aria-labelledby="results-heading" hidden>
+        <div class="section-heading">
+          <span class="step-number" aria-hidden="true">4</span>
+          <div>
+            <h2 id="results-heading">Inspect the result</h2>
+            <p>Compare the complete active file, then inspect every generated artifact.</p>
+          </div>
+        </div>
+
+        <div id="result-status" class="outcome-banner" role="status" aria-live="polite">
+          <p class="outcome-label">Outcome</p>
+          <p id="compaction-outcome" class="outcome-badge"></p>
+          <h3 id="outcome-heading"></h3>
+          <p id="outcome-explanation"></p>
+        </div>
+
+        <div class="summary-grid">
+          <div class="primary-metric">
+            <p class="metric-kicker">Primary metric</p>
+            <h3>Actual active AGENTS.md reduction</h3>
+            <p id="actual-active-value" class="metric-value"></p>
+            <p id="actual-active-comparison"></p>
+            <p class="field-help">Complete original versus complete generated active file, including router and receipt text.</p>
+          </div>
+
+          <div class="secondary-metric">
+            <p class="metric-kicker">Secondary fact</p>
+            <h3>Source instructions externalized</h3>
+            <p id="source-externalization"></p>
+            <p class="field-help">Source text moved to guides. This is not actual active-context reduction.</p>
+          </div>
+
+          <div class="secondary-metric">
+            <p class="metric-kicker">Secondary fact</p>
+            <h3>Complete emitted package</h3>
+            <p id="complete-package"></p>
+            <p class="field-help">Active AGENTS.md, generated guides, and move-map.md. This is separate from always-loaded active-file reduction.</p>
+          </div>
+        </div>
+
+        <p class="field-help">Count basis: Unicode code points; LF and trailing newline included.</p>
+        <dl class="counts" aria-label="Generation counts">
+          <div>
+            <dt>Original</dt>
+            <dd><span id="before-count"></span> Unicode code points</dd>
+          </div>
+          <div>
+            <dt>Generated active file</dt>
+            <dd><span id="active-count"></span> Unicode code points</dd>
+          </div>
+          <div>
+            <dt>Source spans</dt>
+            <dd id="source-span-count"></dd>
+          </div>
+          <div>
+            <dt>Retained source</dt>
+            <dd><span id="retained-count"></span> Unicode code points</dd>
+          </div>
+          <div>
+            <dt>Emitted guides</dt>
+            <dd id="guide-count"></dd>
+          </div>
+          <div>
+            <dt>Moved-to-guide spans</dt>
+            <dd id="moved-span-count"></dd>
+          </div>
+          <div>
+            <dt>Exact duplicate occurrences folded</dt>
+            <dd id="folded-occurrence-count"></dd>
+          </div>
+          <div>
+            <dt>Exact duplicate characters folded</dt>
+            <dd id="folded-character-count"></dd>
+          </div>
+          <div>
+            <dt>Unique instructions deleted</dt>
+            <dd id="unique-deleted-count"></dd>
+          </div>
+          <div>
+            <dt>Unaccounted source spans</dt>
+            <dd id="unaccounted-span-count"></dd>
+          </div>
+        </dl>
+        <p id="count-metric" class="field-help"></p>
+
+        <aside class="receipt-note" aria-labelledby="receipt-heading">
+          <div>
+            <h3 id="receipt-heading">Lightweight Guidance Receipt</h3>
+            <p>The receipt shows which instruction layers the agent says it actually used.</p>
+          </div>
+          <div class="receipt-examples" aria-label="Receipt examples">
+            <code>🪶 core</code>
+            <code>🪶 core · testing</code>
+          </div>
+        </aside>
+
+        <div class="generated-output">
+          <div class="file-browser">
+            <h3>Generated files</h3>
+            <p class="field-help">Select each file to inspect it.</p>
+            <div id="file-list" class="file-list" aria-label="Generated files"></div>
+          </div>
+          <div class="preview-panel">
+            <p class="metric-kicker">Selected file</p>
+            <h3 id="selected-file"></h3>
+            <pre id="file-preview" class="markdown-preview" tabindex="0" aria-labelledby="selected-file"></pre>
+          </div>
+        </div>
+
+        <div class="downstream-actions">
+          <section class="action-panel review-action" aria-labelledby="review-heading">
+            <div class="section-heading section-heading-compact">
+              <span class="step-number" aria-hidden="true">5</span>
+              <div>
+                <h2 id="review-heading">Review with your AI</h2>
+                <p>We make the first cut. Your AI reviews it. You make the final decision.</p>
+              </div>
+            </div>
+            <button id="review-with-ai" type="button" disabled>Copy Review with your AI</button>
+            <p class="field-help">Copies the unchanged source, generated package, source-span ledger, mode, facts, and bounded review instructions to your clipboard. It does not call or send content to an AI service.</p>
+          </section>
+
+          <section class="action-panel export-action" aria-labelledby="export-heading">
+            <div class="section-heading section-heading-compact">
+              <span class="step-number" aria-hidden="true">6</span>
+              <div>
+                <h2 id="export-heading">Copy files or download ZIP</h2>
+                <p>Copy the selected preview or download the complete generated package.</p>
+              </div>
+            </div>
+            <div class="artifact-actions">
+              <button id="copy-selected" type="button" disabled>Copy selected file</button>
+              <button id="download-zip" type="button" disabled>Download ZIP</button>
+            </div>
+          </section>
+        </div>
+
+        <p id="action-feedback" class="message" role="status" aria-live="polite" hidden></p>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
