@@ -119,5 +119,7 @@ modes, and exits nonzero on any mismatch.
 
 This record makes no token, cost, latency, model-behavior, semantic-equivalence,
 safety-certification, general-corpus, adoption, release, or performance claim.
-The repository has no license. No repository visibility or public-release
-action is part of this evidence repair.
+At the time this evidence record was created, no repository license had been
+selected. The current public repository is licensed under Apache-2.0; that
+later license decision does not change this historical measurement. No
+repository visibility or public-release action is part of this evidence repair.
