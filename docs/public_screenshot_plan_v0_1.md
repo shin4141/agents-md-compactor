@@ -4,8 +4,10 @@
 
 This is the smallest planned README screenshot set: three product states, no
 marketing composites, no edited metrics, and no user-provided content. All
-three captures were A-2 visually approved and integrated as byte-identical
-tracked documentation assets.
+three captures were originally A-2 visually approved and integrated. The
+result-metrics and artifacts/review captures were refreshed from the same fixed
+state when their visible obsolete receipt examples became false; the input/mode
+capture remains unchanged.
 
 Use the tracked public historical corpus
 `evidence/public_rc_v0_1/BEFORE_AGENTS.md` in every capture. Select
@@ -26,9 +28,9 @@ values reproducible. Do not use a personal, private, or external corpus.
 
 | Display order | Tracked path | Status | SHA-256 |
 | ---: | --- | --- | --- |
-| 1 | `docs/images/public_v0_1/public-v0_1-result-metrics.png` | Captured; A-2 visually approved; integrated | `dc7a2200368b3421b39d90d3bdb5735a8f067a56d48ec5b8213245c0fc2a3abb` |
+| 1 | `docs/images/public_v0_1/public-v0_1-result-metrics.png` | Captured; receipt copy refreshed; integrated | `69866a5415ad135ff9b367865294cb7e5d20a450c51ef1cdfb03cfa417edcc0d` |
 | 2 | `docs/images/public_v0_1/public-v0_1-input-mode.png` | Captured; A-2 visually approved; integrated | `e650e12d15e5f4382670739094d1f7e8001c6ac4de79b5ef380d1c000d32bc4c` |
-| 3 | `docs/images/public_v0_1/public-v0_1-artifacts-review.png` | Captured; A-2 visually approved; integrated | `3cfbb0e26804257912fa9163319f5eb8fb2d4b62fdf91e058cde9d2797106267` |
+| 3 | `docs/images/public_v0_1/public-v0_1-artifacts-review.png` | Captured; receipt copy refreshed; integrated | `f7fdd314c9a2c4d085ef679b845fed79a14220cd868b1434e2552d523280b01d` |
 
 ## README placement plan
 
@@ -55,9 +57,9 @@ record.
 Before approval, confirm that the historical corpus and Balanced mode were
 used; the screenshot filename matches this plan; no private content, browser
 chrome, extension UI, or unrelated application is visible; and the caption
-still matches the exact UI state. The second screenshot must retain the
+still matches the exact UI state. The result screenshot must retain the
 complete-package disclosure next to the active-file reduction rather than
-cropping it into a footnote. Those checks passed for the integrated assets
+cropping it into a footnote. Those checks passed for the current tracked assets
 listed above.
 
 These screenshots are explanatory product images. The authoritative evidence

@@ -275,9 +275,11 @@ test("semantic status, focus, and selected-artifact hooks are present", () => {
 test("receipt, review, and Japanese preview readability remain explicit", () => {
   assert.match(
     INDEX_HTML,
-    /The receipt shows which instruction layers the agent says it actually used\./,
+    /The receipt shows which instruction layers the agent says it actually used\. It is a declaration, not proof\./,
   );
-  assert.match(INDEX_HTML, /🪶 core/);
+  assert.match(INDEX_HTML, /🪶 Core only/);
+  assert.match(INDEX_HTML, /🪶 Core \+ testing/);
+  assert.match(INDEX_HTML, /🪶 Core \+ release · security/);
   assert.match(
     INDEX_HTML,
     /We make the first cut\. Your AI reviews it\. You make the final decision\./,

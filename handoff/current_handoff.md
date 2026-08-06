@@ -23,14 +23,15 @@
 ## Current state
 
 The clean public genesis, authorized sanitization, Apache-2.0 license,
-A-2-approved screenshots, automated tests, evidence reproduction, and
-unauthenticated public-read verification are complete. GPT's read-only review
-identified only stale active operating state, stale handoff identity, and
-current-tense historical license wording. No product-code, classifier, router,
-UI, privacy, screenshot, metric, or license defect was established.
+A-2 screenshots, automated tests, evidence reproduction, unauthenticated
+public-read verification, and the PR #1 documentary repair are complete. PR #1
+merged as `814f57aa187bd597169c8a137ac15d6915b6c562`; that merge commit is the
+fixed base of the separate Lightweight Guidance Receipt marker vertical.
 
-PR #1 repairs those documentary facts only. README claims, product behavior,
-fixed historical evidence values, screenshots, and LICENSE remain unchanged.
+This vertical changes only the deterministic receipt syntax and its bounded
+public presentation and evidence records. It does not add analytics,
+monitoring, token accounting, performance behavior, classifier behavior,
+routing behavior, source disposition changes, or guide-body changes.
 
 ## Audit lineage
 
@@ -89,10 +90,27 @@ These audits have distinct scopes and must not be collapsed into one result.
 - Repair surface: PR #1, five documentary files only
 - No README, product source, screenshot, historical metric, or LICENSE change
 
+### GPT — final marker PR review
+
+- Final marker PR review head:
+  `f3d19b398dc2630b05ee78cfbcea6096b504f4cc`
+- Verdict: `PASS — ready for Shin merge authorization`
+- Established:
+  - exact feather-marker formatter syntax
+  - generated receipt contract
+  - declaration/non-proof boundary
+  - no token, cost, time, or performance claim
+  - 108 tests PASS
+  - evidence reproduction PASS
+  - 20,664 → 14,284 / 30.9% preserved
+  - package 32,383 / +56.7% preserved
+  - 41/28/13, 13/13, and 10 routes preserved
+
 ### Fable — pending
 
-Fable review has not begun. It is allowed only after PR #1 is merged and the
-resulting main commit is frozen as the exact read-only review target.
+Fable review has not begun. It is allowed only after the marker PR is merged
+and the resulting main commit is frozen as the exact read-only review target;
+it must not review the earlier PR #1 merge commit.
 
 Fable must distinguish proven fixed-corpus facts; structurally plausible but
 unmeasured repeated-use and future-bloat value; and unsupported token, cost,
@@ -118,63 +136,79 @@ separate explicit decision after reading the complete conversation.
 - tracked input/mode screenshot SHA-256:
   `e650e12d15e5f4382670739094d1f7e8001c6ac4de79b5ef380d1c000d32bc4c`
 - tracked result-metrics screenshot SHA-256:
-  `dc7a2200368b3421b39d90d3bdb5735a8f067a56d48ec5b8213245c0fc2a3abb`
+  `69866a5415ad135ff9b367865294cb7e5d20a450c51ef1cdfb03cfa417edcc0d`
 - tracked artifacts/review screenshot SHA-256:
-  `3cfbb0e26804257912fa9163319f5eb8fb2d4b62fdf91e058cde9d2797106267`
+  `f7fdd314c9a2c4d085ef679b845fed79a14220cd868b1434e2552d523280b01d`
 - offline reproduction:
   `node evidence/public_rc_v0_1/reproduce.mjs`
-- test suite: 107 passed, 0 failed, 0 cancelled, 0 skipped, 0 todo
+- test suite: 108 passed, 0 failed, 0 cancelled, 0 skipped, 0 todo
 
 ## Required handoff fields
 
 **Current Layer:**
-`V9 — Fixed Public RC Review`
+`V11 — Lightweight Guidance Receipt`
 
 **Current Gate:**
 
-- While PR #1 is unmerged:
-  `HOLD — PR #1 review and merge`
-- After PR #1 merges:
+- While PR #2 is unmerged:
+  `HOLD — Shin merge authorization`
+- After PR #2 merges:
   `HOLD — freeze the resulting main commit and conduct fixed-commit Fable review`
 
 **Current Source of Truth:**
 
-- While PR #1 is unmerged: public `main` at
-  `b60236dff97f8c026865f609f4db480428209c81` plus the exact current head of
-  PR #1.
-- After PR #1 merges: the resulting main merge commit becomes the sole fixed
-  public review target. The pre-merge branch state becomes historical and must
-  not remain an active authority source.
+- Verified post-PR #1 public `main` base:
+  `814f57aa187bd597169c8a137ac15d6915b6c562`.
+- Marker implementation branch:
+  `codex/lightweight-guidance-receipt-v0-1`, based on that exact main commit.
+- Reviewed marker implementation commit:
+  `f3d19b398dc2630b05ee78cfbcea6096b504f4cc`.
+- Subsequent commits are permitted only when they modify
+  `handoff/current_handoff.md` to record review or transition state.
+- The exact merge head must be resolved from live GitHub state immediately
+  before merge and verified against this rule.
+- Once the separate marker PR is merged, its resulting main commit—not this
+  branch or the PR #1 merge—becomes the sole fixed Fable review target.
 
-This transition rule prevents the handoff from becoming stale merely because
-PR #1 merges. No follow-up wording-only repair is required solely to replace
-branch state with main state.
-
-**Completed:** clean public genesis, sanitization, tests, evidence reproduction,
-public-read verification, Apache-2.0, screenshots, and GPT read-only review.
+**Completion Line:** exact formatter syntax implemented; generated receipt
+contract updated; full tests PASS; historical evidence mechanically
+synchronized; 30.9% active-file result preserved; marker boundaries documented;
+separate Draft PR opened.
 
 **Missing Closure:**
 
-- review and merge PR #1;
-- freeze the resulting main commit as the exact Fable target;
-- Fable read-only review;
-- separately authorized remediation only if Fable establishes a bounded issue;
-- Shin decision on the complete Fable conversation URL; and
-- public announcement.
+- Shin merge authorization;
+- resulting main commit freeze;
+- Fable read-only review; and
+- separate announcement decision.
 
-The PR #1 merge item closes automatically when GitHub records the PR as merged
-and must not be carried forward as an unresolved post-merge task.
+**Next Actor:** Shin merge authorization → main freeze → Fable.
 
-**Next Actor:** GPT review → Shin merge authorization → Fable.
+**Next Safe Action:** Await Shin's explicit merge authorization. If authorized,
+resolve the exact current PR #2 head from GitHub immediately before merge and
+verify:
 
-**Next Safe Action:** Review the updated PR #1 head. If accepted, merge PR #1,
-freeze the resulting main commit, and begin no work beyond read-only Fable
-review preparation.
+- the reviewed marker implementation commit
+  `f3d19b398dc2630b05ee78cfbcea6096b504f4cc` remains in its ancestry;
+- every later commit changes only `handoff/current_handoff.md`;
+- no README, source, tests, evidence, screenshots, or LICENSE changed after the
+  reviewed marker implementation commit;
+- PR #2 remains mergeable and targets `main`.
 
-**Rollback or Recheck Path:** Before merge, close PR #1 and delete its branch.
-After merge, if the one immediate verified integration/determinism/no-write
-check fails, perform one history-preserving revert, record it, and return to
-Shin. Do not repair forward inside that post-merge check.
+Then merge using that live head as the expected head SHA, freeze the resulting
+`main` commit, and perform one immediate integration/determinism/no-write
+verification. Do not begin Fable review until that fixed main commit is
+recorded.
+
+This live-head resolution rule prevents review-attestation commits from creating
+an endless stale-SHA loop. It does not permit product or evidence changes after
+GPT PASS.
+
+**Rollback or Recheck Path:** Before marker merge, close the marker PR and
+delete its branch. After merge, if the immediate verified integration,
+determinism, or no-write check fails, perform one history-preserving revert,
+record it, and return to Shin. Do not repair forward inside that post-merge
+check.
 
 **Known Boundaries:** One historical corpus is not general performance. Unicode
 code points are not tokens. The complete package is larger than the source.
@@ -182,13 +216,13 @@ Routes and the receipt do not guarantee runtime compliance. No token, cost,
 latency, model-performance, safety, adoption, or public-release claim is
 established.
 
-**Do Not Continue Boundary:** While PR #1 is unmerged, do not begin Fable
-review. After PR #1 merges, do not begin Fable review until the resulting main
-commit is frozen as the exact review target. Do not change product behavior,
-classifier, router, UI, privacy behavior, historical evidence, screenshots,
-README claims, LICENSE, visibility, tags, GitHub Releases, npm publication, or
-announcements. Only read-only review and separately authorized bounded
-remediation are allowed.
+**Do Not Continue Boundary:** Do not begin Fable review before PR #2 is merged
+and the resulting main commit is frozen as the exact review target. Do not
+change product behavior beyond this bounded receipt contract, classifier,
+router, privacy behavior, source dispositions, guide bodies, LICENSE,
+visibility, tags, GitHub Releases, npm publication, or announcements. Only the
+marker PR, read-only review, and separately authorized bounded remediation are
+allowed.
 
 **What must not be returned to the Decision Owner:** routine wording, checksum
 maintenance, test grouping, branch cleanup, deterministic evidence maintenance,

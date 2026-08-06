@@ -131,8 +131,20 @@ send input to an AI service; you choose whether and where to paste it.
 
 *Evidence boundary: Demonstrates available local actions. “Review with your AI” copies to clipboard only; it does not call an external AI service or establish external review. [Evidence and reproducibility](evidence/public_rc_v0_1/EVIDENCE.md)*
 
-The receipt records which instruction layers an agent says it read and used.
-It is a declaration, not a guarantee of runtime compliance.
+## Lightweight Guidance Receipt
+
+The generated file instructs the agent to end each response with one of these
+markers:
+
+- `🪶 Core only`
+- `🪶 Core + testing`
+- `🪶 Core + release · security`
+
+`Core only` is valid and useful when no conditional guide was read. Listed
+guides are guides the agent says it actually read. The marker is a declaration,
+not proof of guide reading or runtime compliance. The feather represents only a
+lighter always-loaded instruction surface; it does not establish token, cost,
+time, or model-performance savings.
 
 ## Why this differs from semantic AI rewriting
 
