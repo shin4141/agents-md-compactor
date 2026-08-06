@@ -133,8 +133,8 @@ send input to an AI service; you choose whether and where to paste it.
 
 ## Lightweight Guidance Receipt
 
-The marker appears at the end of every agent response governed by the generated
-file:
+The generated file instructs the agent to end each response with one of these
+markers:
 
 - `🪶 Core only`
 - `🪶 Core + testing`

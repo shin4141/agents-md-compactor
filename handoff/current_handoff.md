@@ -134,7 +134,10 @@ separate explicit decision after reading the complete conversation.
 
 **Current Gate:**
 
-`HOLD — marker implementation and evidence closure before fixed-commit Fable review`
+- While PR #2 is unmerged:
+  `HOLD — bounded GPT review repair and Shin merge authorization`
+- After PR #2 merges:
+  `HOLD — freeze the resulting main commit and conduct fixed-commit Fable review`
 
 **Current Source of Truth:**
 
@@ -160,9 +163,9 @@ separate Draft PR opened.
 
 **Next Actor:** GPT review → Shin merge authorization → main freeze → Fable.
 
-**Next Safe Action:** Complete the bounded marker implementation and its
-evidence closure, then open a separate Draft PR. Do not begin GPT or Fable
-review before that PR exists and its exact head is available for review.
+**Next Safe Action:** Apply the two bounded GPT documentary corrections, push
+them to PR #2, and stop for final GPT review. After GPT PASS, only Shin may
+authorize merge.
 
 **Rollback or Recheck Path:** Before marker merge, close the marker PR and
 delete its branch. After merge, if the immediate verified integration,
@@ -176,13 +179,13 @@ Routes and the receipt do not guarantee runtime compliance. No token, cost,
 latency, model-performance, safety, adoption, or public-release claim is
 established.
 
-**Do Not Continue Boundary:** Do not begin GPT or Fable review until the marker
-PR is complete and, after merge, the resulting main commit is frozen as the
-exact review target. Do not change product behavior beyond this bounded receipt
-contract, classifier, router, privacy behavior, source dispositions, guide
-bodies, LICENSE, visibility, tags, GitHub Releases, npm publication, or
-announcements. Only the marker PR, read-only review, and separately authorized
-bounded remediation are allowed.
+**Do Not Continue Boundary:** Do not begin Fable review before PR #2 is merged
+and the resulting main commit is frozen as the exact review target. Do not
+change product behavior beyond this bounded receipt contract, classifier,
+router, privacy behavior, source dispositions, guide bodies, LICENSE,
+visibility, tags, GitHub Releases, npm publication, or announcements. Only the
+marker PR, read-only review, and separately authorized bounded remediation are
+allowed.
 
 **What must not be returned to the Decision Owner:** routine wording, checksum
 maintenance, test grouping, branch cleanup, deterministic evidence maintenance,
