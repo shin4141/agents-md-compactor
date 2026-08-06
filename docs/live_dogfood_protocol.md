@@ -30,14 +30,22 @@ Do not skip directly from capsule preparation to the fictional sample or Fable.
 
 ## User-equivalent setup
 
-- Fix the canonical repository commit, exact source `AGENTS.md`, Compactor
-  mode, generated-package identity, and isolated installation destination.
+- At dogfood start, fix the canonical Compactor commit and create an isolated
+  clone or isolated-worktree equivalent at that exact commit. It must be
+  separate from the canonical working tree used to establish the commit.
+- Record the original source `AGENTS.md` identity with its repository commit
+  and content hash, the Compactor mode, and the generated-package identity.
+- Install or overlay the generated Compactor package only inside that isolated
+  clone/worktree. Never install it into, replace, or write the canonical
+  repository's `AGENTS.md`.
+- Do not use an empty directory containing only generated output as the dogfood
+  destination. Keep the isolated copy's repository-persistent reconnect targets
+  — including relevant `README.md`, `docs/`, and `validation/` material —
+  available to the fresh session.
 - Start from the ordinary product path documented in `README.md`; do not use a
   developer-only invocation or modify product code for the run.
 - Do not add `🪶 Core only`, `🪶 Core + <guides actually read>`, or an equivalent
   marker instruction manually to the source capsule or transient prompt.
-- Do not replace the source repository `AGENTS.md` with generated output during
-  this preparation step.
 - Do not feed an already-generated Compactor output back into the product as
   ordinary source. A recursive experiment requires separate authority and
   exact provenance.

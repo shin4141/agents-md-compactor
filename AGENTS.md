@@ -20,18 +20,36 @@ operating discipline below.
 
 Current Gate:
 
-`HOLD — destination-specific capsule refit before live user-equivalent dogfood`
+The reviewed capsule-refit ancestry marker is
+`022eadbc4f4e8cdf654ba655877a053fd50da282`.
 
-The Lightweight Guidance Receipt marker is merged on canonical `main`. The
-current work may repair only repository-persistent operating instructions and
-handoff state. It does not authorize live dogfood, a fictional measured sample,
-Fable review, a tag, GitHub Release, npm publication, announcement, screenshot
-regeneration, product expansion, classifier, router, UI, or behavior change.
+Before selecting the Gate, refresh canonical `origin/main` and check whether
+that marker is its ancestor:
 
-After this capsule refit is accepted and merged, the Gate advances only to
-`HOLD — ordinary-user-path dogfood before fictional sample or Fable`. The next
-authorized product step is that dogfood under `docs/live_dogfood_protocol.md`.
-It is not Fable review.
+```text
+git merge-base --is-ancestor 022eadbc4f4e8cdf654ba655877a053fd50da282 origin/main
+```
+
+- If it is not an ancestor, the Gate is:
+  `HOLD — capsule refit review / merge`.
+- If it is an ancestor, the Gate is:
+  `HOLD — ordinary-user-path dogfood before fictional sample or Fable`.
+
+Do not infer either state from a PR's existence, this branch, or a stale local
+checkout. This branch never authorizes dogfood before the marker is present in
+canonical `main`.
+
+The Lightweight Guidance Receipt marker is merged on canonical `main`. While
+the reviewed capsule-refit marker is absent, the current work may repair only
+repository-persistent operating instructions and handoff state. It does not
+authorize live dogfood, a fictional measured sample, Fable review, a tag,
+GitHub Release, npm publication, announcement, screenshot regeneration,
+product expansion, classifier, router, UI, or behavior change.
+
+After the marker is present in canonical `main`, the next authorized product
+step is ordinary-user-path dogfood under `docs/live_dogfood_protocol.md`. It is
+not Fable review; do not reuse the pre-merge documentation-only boundary to
+describe the post-merge next action.
 
 Do not claim a stage complete from file existence, a running UI, partial
 generation, or a happy-path test alone. Each stage must record:

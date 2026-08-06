@@ -32,8 +32,9 @@ marker PR #2 merged as canonical main
 The marker is shipped in generated output as `🪶 Core only` or
 `🪶 Core + <guides actually read>`. It remains a declaration, not proof of
 guide reading or runtime compliance. Live user-equivalent dogfood has not
-begun. The current work is a documentation-only destination-specific capsule
-refit before that dogfood.
+begun. While the capsule-refit ancestry marker is absent from canonical `main`,
+the current work is documentation-only refit review / merge; once it is
+present, the next product step is isolated ordinary-user-path dogfood.
 
 ## Audit lineage
 
@@ -152,7 +153,23 @@ separate explicit decision after reading the complete conversation.
 `V11 — Reconnectable Forgetting / AGENTS.md Compactor`
 
 **Current Gate:**
-`HOLD — destination-specific capsule refit before live user-equivalent dogfood`
+
+The reviewed capsule-refit ancestry marker is
+`022eadbc4f4e8cdf654ba655877a053fd50da282`.
+
+After refreshing canonical `origin/main`, determine the Gate with:
+
+```text
+git merge-base --is-ancestor 022eadbc4f4e8cdf654ba655877a053fd50da282 origin/main
+```
+
+- Marker absent from canonical `main`:
+  `HOLD — capsule refit review / merge`.
+- Marker present in canonical `main`:
+  `HOLD — ordinary-user-path dogfood before fictional sample or Fable`.
+
+Do not use PR existence, branch position, or a stale checkout as a merge
+substitute. The branch does not authorize dogfood while the marker is absent.
 
 **Current Source of Truth:**
 
@@ -162,6 +179,8 @@ separate explicit decision after reading the complete conversation.
   `codex/v13-capsule-refit-before-dogfood`.
 - Capsule-refit Draft PR:
   `https://github.com/shin4141/agents-md-compactor/pull/3`.
+- Reviewed capsule-refit ancestry marker:
+  `022eadbc4f4e8cdf654ba655877a053fd50da282`.
 - V13 capsule-standard source:
   `shin4141/decision-os-v13-loopkit@c81b907951cb223106717b040aa2da034800d81d`.
 - Canonical durable Fit Audit record:
@@ -176,7 +195,8 @@ next step from repository-persistent instructions alone.
 
 **Missing Closure:**
 
-- review and merge authorization for capsule-refit Draft PR #3;
+- if the ancestry marker is absent: review and merge authorization for
+  capsule-refit Draft PR #3;
 - ordinary-user-path live Compactor dogfood;
 - isolated fresh-session receipt and actual-guide-use observation;
 - separate fictional `AGENTS.md` measured sample;
@@ -187,17 +207,19 @@ next step from repository-persistent instructions alone.
 Draft PR, and handoff hygiene. Shin retains the final Seat and merge authority.
 
 **What the Receiving AI Now Owns:** Keep the capsule refit documentation-only,
-close review feedback on the same branch, preserve the Fit Audit record, and do
-not start live dogfood until the refit is accepted and merged.
+preserve the Fit Audit record, and first resolve the ancestry marker against
+fresh canonical `main`. If absent, close review feedback on Draft PR #3; if
+present, reconnect to the isolated dogfood protocol. Do not infer merge from
+this branch or a stale checkout.
 
-**Next Authorized Action:** Review and, only with Shin's authorization, merge
-the documentation-only capsule-refit Draft PR. After merge, the next product
-step is ordinary-user-path dogfood following
+**Next Authorized Action:** If the ancestry marker is absent, review and, only
+with Shin's authorization, merge documentation-only Draft PR #3. If present,
+the next product step is ordinary-user-path dogfood following
 `docs/live_dogfood_protocol.md`; it is not Fable.
 
-**First One Action:** Inspect capsule-refit Draft PR #3 against
-`docs/capsule_fit_audit.md` and confirm that its changed files remain limited to
-authorized operating-instruction surfaces.
+**First One Action:** Refresh canonical `origin/main` and run the ancestry
+check above. Inspect Draft PR #3 only when the marker is absent; otherwise read
+`docs/live_dogfood_protocol.md` before any dogfood action.
 
 **Rollback or Recheck Path:** Before merge, close the refit PR and leave
 canonical main `437c9f882493a015738d70e8cc89f063c547b2df` unchanged. If a review
@@ -210,11 +232,14 @@ Routes and the receipt do not guarantee runtime compliance. No token, cost,
 latency, model-performance, safety, adoption, or public-release claim is
 established.
 
-**Do Not Continue Boundary:** Do not run Compactor on the refitted source
-`AGENTS.md`, replace it with generated output, add a feather marker manually,
-start the fictional sample, or begin Fable in this task. Do not change product
-behavior, classifier, router, UI, tests, evidence, screenshots, README claims,
-LICENSE, visibility, tags, GitHub Releases, npm publication, or announcements.
+**Do Not Continue Boundary:** While the ancestry marker is absent, do not run
+Compactor on the refitted source `AGENTS.md`, replace it with generated output,
+add a feather marker manually, start the fictional sample, or begin Fable. Once
+the marker is present, begin dogfood only as the next separately authorized
+operation under `docs/live_dogfood_protocol.md`; this refit does not authorize
+product behavior, classifier, router, UI, tests, evidence, screenshots, README
+claims, LICENSE, visibility, tags, GitHub Releases, npm publication, or
+announcements.
 
 **What must not be returned to the Decision Owner:** routine wording, checksum
 maintenance, test grouping, branch cleanup, deterministic evidence maintenance,
