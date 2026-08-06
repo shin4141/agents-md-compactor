@@ -160,6 +160,8 @@ separate explicit decision after reading the complete conversation.
   `437c9f882493a015738d70e8cc89f063c547b2df`.
 - Capsule-refit branch:
   `codex/v13-capsule-refit-before-dogfood`.
+- Capsule-refit Draft PR:
+  `https://github.com/shin4141/agents-md-compactor/pull/3`.
 - V13 capsule-standard source:
   `shin4141/decision-os-v13-loopkit@c81b907951cb223106717b040aa2da034800d81d`.
 - Canonical durable Fit Audit record:
@@ -174,7 +176,7 @@ next step from repository-persistent instructions alone.
 
 **Missing Closure:**
 
-- review and merge authorization for the capsule-refit Draft PR;
+- review and merge authorization for capsule-refit Draft PR #3;
 - ordinary-user-path live Compactor dogfood;
 - isolated fresh-session receipt and actual-guide-use observation;
 - separate fictional `AGENTS.md` measured sample;
@@ -193,7 +195,7 @@ the documentation-only capsule-refit Draft PR. After merge, the next product
 step is ordinary-user-path dogfood following
 `docs/live_dogfood_protocol.md`; it is not Fable.
 
-**First One Action:** Inspect the capsule-refit Draft PR against
+**First One Action:** Inspect capsule-refit Draft PR #3 against
 `docs/capsule_fit_audit.md` and confirm that its changed files remain limited to
 authorized operating-instruction surfaces.
 
