@@ -107,7 +107,7 @@ You need a current Node.js runtime. This repository does not require an
 
 See the [Privacy boundary](#privacy-boundary) for the full limitations.
 
-1. Click GitHub's `Code` button and choose `Download ZIP`.
+1. Click **[Download ZIP](https://github.com/shin4141/agents-md-compactor/archive/refs/heads/main.zip)** to download this repository.
 2. Unzip the downloaded repository.
 3. Open Terminal.
 4. Change into the extracted `agents-md-compactor` folder. One simple option is
