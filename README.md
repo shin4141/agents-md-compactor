@@ -26,7 +26,7 @@ deleted; reconnect triggers remain active.
 **What the 30.9% measures:** the active `AGENTS.md`, not the total emitted
 package.
 
-The full package is **32,383 Unicode code points (+56.7% versus the original)**
+The full package is **36,103 Unicode code points (+74.7% versus the original)**
 because it preserves the moved instructions and their traceability.
 
 ## Demonstrated historical result
@@ -46,13 +46,13 @@ All 13 moved source bodies are preserved byte-for-byte. The count basis is
 Unicode code points with LF line endings and any trailing newline included.
 
 The package-total disclosure is part of the result, not a hidden qualifier:
-the active `AGENTS.md`, two guides, and move map total **32,383 Unicode code
-points**. That is **+56.7% versus the original** because the package retains
+the active `AGENTS.md`, two guides, and move map total **36,103 Unicode code
+points**. That is **+74.7% versus the original** because the package retains
 the moved knowledge and the traceability needed to reconnect to it.
 
 <p align="center">
   <a href="evidence/public_rc_v0_1/EVIDENCE.md">
-    <img src="docs/images/public_v0_1/public-v0_1-result-metrics.png" alt="Compaction result showing 30.9% active-file reduction from 20,664 to 14,284 Unicode code points and a 32,383-code-point full package." width="1152">
+    <img src="docs/images/public_v0_1/public-v0_1-result-metrics.png" alt="Compaction result showing 30.9% active-file reduction from 20,664 to 14,284 Unicode code points and a 36,103-code-point full package." width="1152">
   </a>
 </p>
 

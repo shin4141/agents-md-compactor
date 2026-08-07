@@ -3,6 +3,10 @@
 <a id="operational-judgment-references"></a>
 ## Operational Judgment References
 
+### Source Base Contract
+
+Relative file references and relative Markdown links inside a preserved moved source span are resolved from the directory containing the installed generated active `AGENTS.md` — the original source-file base — not from the generated guide's directory. This preserves the original reference base only; it does not establish that a target exists.
+
 <!-- source-span: S006-1e9d1890 -->
 - Next 0.01 selection: read `field_notes/021_required_intermediate_node.md`.
   Use when selecting the next action. The next 0.01 is the earliest missing required intermediate node between current state and target state.
@@ -27,6 +31,10 @@
 <a id="continuation-proof-references"></a>
 ## Continuation Proof References
 
+### Source Base Contract
+
+Relative file references and relative Markdown links inside a preserved moved source span are resolved from the directory containing the installed generated active `AGENTS.md` — the original source-file base — not from the generated guide's directory. This preserves the original reference base only; it does not establish that a target exists.
+
 <!-- source-span: S010-5ac15e07 -->
 Operational origin and validation:
 
@@ -37,6 +45,10 @@ Operational origin and validation:
 
 <a id="conditional-report-extensions"></a>
 ## Conditional Report Extensions
+
+### Source Base Contract
+
+Relative file references and relative Markdown links inside a preserved moved source span are resolved from the directory containing the installed generated active `AGENTS.md` — the original source-file base — not from the generated guide's directory. This preserves the original reference base only; it does not establish that a target exists.
 
 <!-- source-span: S012-01555c74 -->
 - Context Health: when Context Risk is `YELLOW` or `RED`, materially changes, or continuation depends on context health.
@@ -50,6 +62,10 @@ Operational origin and validation:
 
 <a id="signal-format"></a>
 ## Signal and Parked-Horizon Format
+
+### Source Base Contract
+
+Relative file references and relative Markdown links inside a preserved moved source span are resolved from the directory containing the installed generated active `AGENTS.md` — the original source-file base — not from the generated guide's directory. This preserves the original reference base only; it does not establish that a target exists.
 
 <!-- source-span: S015-811cff13 -->
 Use:
@@ -90,6 +106,10 @@ CLAUDE-SKILLS / HOOKS / MCP / PLUGINIZATION / V1
 <a id="context-health-procedure"></a>
 ## Context Health Procedure
 
+### Source Base Contract
+
+Relative file references and relative Markdown links inside a preserved moved source span are resolved from the directory containing the installed generated active `AGENTS.md` — the original source-file base — not from the generated guide's directory. This preserves the original reference base only; it does not establish that a target exists.
+
 <!-- source-span: S021-bc0e9b6c -->
 Use this format:
 
@@ -120,6 +140,10 @@ Completion rule:
 <a id="update-check-output"></a>
 ## 0.01 Update Check Output
 
+### Source Base Contract
+
+Relative file references and relative Markdown links inside a preserved moved source span are resolved from the directory containing the installed generated active `AGENTS.md` — the original source-file base — not from the generated guide's directory. This preserves the original reference base only; it does not establish that a target exists.
+
 <!-- source-span: S026-35b2982a -->
 Use this format:
 
@@ -136,6 +160,10 @@ Next carryover, if any:
 
 <a id="concept-promotion-record"></a>
 ## Concept Promotion Record
+
+### Source Base Contract
+
+Relative file references and relative Markdown links inside a preserved moved source span are resolved from the directory containing the installed generated active `AGENTS.md` — the original source-file base — not from the generated guide's directory. This preserves the original reference base only; it does not establish that a target exists.
 
 <!-- source-span: S029-5257e34a -->
 - what is being promoted

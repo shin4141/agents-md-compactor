@@ -1,5 +1,47 @@
 # Current Handoff
 
+## Current repair status — source-relative reference preservation
+
+This section is the current state and supersedes the older as-of snapshots
+below. Those historical records remain preserved for their own evidence states.
+
+- Canonical repair base: `9fd3f196b5bfebd8f03f7cf7176013cd2cd2268b`.
+- Working branch: `codex/source-relative-reference-preservation`.
+- Defect: a byte-preserved moved body could give a relative path or Markdown
+  link a guide-relative meaning after relocation.
+- Repair: deterministic Source Base Contract metadata now precedes every
+  routed moved-source section and is outside every preserved source-span body.
+- Active historical artifact: unchanged at 14,284 Unicode code points and
+  SHA-256 `934bfcb6355ddcb065e09da0071d1c5cac8b2d59ebdf6d3cc2bf0d8880652b35`.
+- Current complete package: 36,103 Unicode code points; 15,439 / 74.7% larger
+  than the 20,664-code-point source. This replaces the former generated-package
+  total only; the active 6,380 / 30.9% reduction remains unchanged.
+- Accounting: 41 total / 28 retained / 13 moved / 0 folded / 0 deleted / 0
+  unaccounted; 13/13 moved bodies exact; 10 reconnect targets.
+- Verification: `npm test` PASS (108/108);
+  `node evidence/public_rc_v0_1/reproduce.mjs` PASS in all three modes;
+  `git diff --check` PASS.
+- Public screenshot: the factually stale result-metrics capture was refreshed
+  from the actual local application with the fixed source and Balanced mode;
+  raw SHA-256 `cd1f1f67b6d55d845ab15051249f1f44d9749b3d711c5f2d07bf38ad1d621877`.
+
+**Current Gate:** `HOLD — source-relative reference repair review`.
+
+**Missing Closure:** bounded review and Draft PR publication only; no merge is
+authorized.
+
+**Next Authorized Action:** inspect the bounded diff, commit it, and create a
+Draft PR. Do not begin Fable, classifier optimization, another compaction run,
+or unrelated product, README, or release work.
+
+**Rollback or Recheck Path:** revert the bounded repair commit, then rerun
+`npm test`, `node evidence/public_rc_v0_1/reproduce.mjs`, and
+`git diff --check`. The historical source, active artifact, and moved-body
+hashes provide the fixed recheck anchors.
+
+**Completion Line:** `PASS — SOURCE-RELATIVE REFERENCE REPAIR IMPLEMENTED,
+REPRODUCED, AND AWAITING BOUNDED REVIEW`.
+
 ## Product anchors
 
 - Decision Owner: Shin

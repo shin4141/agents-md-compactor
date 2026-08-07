@@ -1705,6 +1705,12 @@ function renderGuideSourceSpan(decision, preserveWholeSection = false) {
   return `<!-- source-span: ${decision.span.id} -->\n${content}<!-- /source-span: ${decision.span.id} -->`;
 }
 
+const SOURCE_BASE_CONTRACT = [
+  "### Source Base Contract",
+  "",
+  "Relative file references and relative Markdown links inside a preserved moved source span are resolved from the directory containing the installed generated active `AGENTS.md` — the original source-file base — not from the generated guide's directory. This preserves the original reference base only; it does not establish that a target exists.",
+].join("\n");
+
 function decisionRouteSpec(decision, guidePath) {
   let definition;
   let inline = false;
@@ -1767,14 +1773,16 @@ function renderGuide(category, decisions) {
   const sections = [];
   if (ordinary.length > 0) {
     sections.push(
-      ordinary.map((decision) => renderGuideSourceSpan(decision)).join("\n\n"),
+      `${SOURCE_BASE_CONTRACT}\n\n${ordinary
+        .map((decision) => renderGuideSourceSpan(decision))
+        .join("\n\n")}`,
     );
   }
   for (const group of [...routedGroups.values()].sort(
     (left, right) => left.spec.sourceStart - right.spec.sourceStart,
   )) {
     sections.push(
-      `<a id="${group.spec.guideAnchor}"></a>\n## ${group.spec.guideHeading}\n\n${group.decisions
+      `<a id="${group.spec.guideAnchor}"></a>\n## ${group.spec.guideHeading}\n\n${SOURCE_BASE_CONTRACT}\n\n${group.decisions
         .sort((left, right) => left.span.start - right.span.start)
         .map((decision) => renderGuideSourceSpan(decision, true))
         .join("\n\n")}`,
@@ -2328,6 +2336,9 @@ function assertGeneratedInvariants(input, result) {
       ) !== 1
     ) {
       malformed(`guide ${guide.path} is missing its receipt instruction`);
+    }
+    if (!guide.content.includes(SOURCE_BASE_CONTRACT)) {
+      malformed(`guide ${guide.path} is missing the source base contract`);
     }
 
     for (const spanId of guide.spanIds) {

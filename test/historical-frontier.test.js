@@ -15,10 +15,15 @@ const SOURCE = readFileSync(new URL("BEFORE_AGENTS.md", EVIDENCE), "utf8");
 const README = readFileSync(new URL("../README.md", import.meta.url), "utf8");
 const EVIDENCE_RECORD = readFileSync(new URL("EVIDENCE.md", EVIDENCE), "utf8");
 const MODES = ["Conservative", "Balanced", "Aggressive"];
+const SOURCE_BASE_CONTRACT = [
+  "### Source Base Contract",
+  "",
+  "Relative file references and relative Markdown links inside a preserved moved source span are resolved from the directory containing the installed generated active `AGENTS.md` — the original source-file base — not from the generated guide's directory. This preserves the original reference base only; it does not establish that a target exists.",
+].join("\n");
 const ARTIFACT_HASHES = new Map([
   ["AGENTS.md", "934bfcb6355ddcb065e09da0071d1c5cac8b2d59ebdf6d3cc2bf0d8880652b35"],
-  ["agent-guides/handoff.md", "7951186b3f6ca7d578c853e419df212e2cd0e2893fd57aa2c7bf1590968d5b39"],
-  ["agent-guides/other.md", "68e32ca18e842676087e06f5e273c503dfbd4df4757a9daaf596cd8f58a598a5"],
+  ["agent-guides/handoff.md", "6e5fa52901b789b8084f2927e91cf25f7c5e61d8847252cf2c2206b07bdf7d91"],
+  ["agent-guides/other.md", "1c4cf73acd98dec278eb0be432a43927f80c7ef65d00340fca16c1eb9f743198"],
   ["move-map.md", "745211070a2153d114b1e5dc646e79764ddcefb66393f0675185372f8e4ecd2c"],
 ]);
 const MOVED_BODY_HASHES = new Map([
@@ -75,8 +80,8 @@ test("tracked historical frontier is exact, routed, and self-contained in all mo
     /0 unique instructions deleted/u,
     /13\/13 moved instruction bodies[\s>]+preserved byte-for-byte/u,
     /Conditional instructions move out of the always-loaded file without being\s+deleted; reconnect triggers remain active\./u,
-    /32,383 Unicode code points/u,
-    /\+56\.7% versus the original/u,
+    /36,103 Unicode code points/u,
+    /\+74\.7% versus the original/u,
     /the active `AGENTS\.md`, not the total emitted\s+package/u,
   ]) {
     assert.match(README, claim);
@@ -85,8 +90,8 @@ test("tracked historical frontier is exact, routed, and self-contained in all mo
     EVIDENCE_RECORD,
     /semantic rewrite baseline — not a lossless\s+compression target/u,
   );
-  assert.match(EVIDENCE_RECORD, /32,383 code points/);
-  assert.match(EVIDENCE_RECORD, /56\.7% larger/);
+  assert.match(EVIDENCE_RECORD, /36,103 code points/);
+  assert.match(EVIDENCE_RECORD, /74\.7% larger/);
   assert.doesNotMatch(
     README,
     /total(?:-| )(?:emitted )?package reduction|token reduction|cost reduction|latency improvement|model-performance improvement/iu,
@@ -116,11 +121,11 @@ test("tracked historical frontier is exact, routed, and self-contained in all mo
     assert.equal(result.counts.exactDuplicateCharactersFolded, 0);
     assert.equal(result.counts.uniqueInstructionsDeleted, 0);
     assert.equal(result.counts.unaccountedSourceSpans, 0);
-    assert.equal(facts.completePackage.characters, 32383);
+    assert.equal(facts.completePackage.characters, 36103);
     assert.deepEqual(facts.completePackage.relativeToOriginal, {
       kind: "increase",
-      characters: 11719,
-      percentage: 56.7,
+      characters: 15439,
+      percentage: 74.7,
     });
 
     assert.deepEqual(artifacts.map(({ path }) => path), [...ARTIFACT_HASHES.keys()]);
@@ -143,6 +148,16 @@ test("tracked historical frontier is exact, routed, and self-contained in all mo
       );
       assert.ok(guide);
       assert.equal(movedGuideBody(guide, disposition.sourceSpanId), sourceBody);
+      const sourceSpanOffset = guide.content.indexOf(
+        `<!-- source-span: ${disposition.sourceSpanId} -->`,
+      );
+      const contractOffset = guide.content.lastIndexOf(
+        SOURCE_BASE_CONTRACT,
+        sourceSpanOffset,
+      );
+      assert.notEqual(contractOffset, -1, "source base contract precedes moved body");
+      assert.ok(contractOffset < sourceSpanOffset);
+      assert.ok(!sourceBody.includes(SOURCE_BASE_CONTRACT));
       movedTargets.set(
         disposition.sourceSpanId,
         reconnectTargetForSpan(guide, disposition.sourceSpanId),
@@ -161,6 +176,11 @@ test("tracked historical frontier is exact, routed, and self-contained in all mo
       assert.ok(guide, `${mode}: existing route file`);
       assert.equal(count(guide.content, `<a id="${anchor}"></a>`), 1);
       assert.equal(count(result.activeAgentsMd.content, `read \`${route.path}\``), 1);
+      const anchorOffset = guide.content.indexOf(`<a id="${anchor}"></a>`);
+      const sourceSpanOffset = guide.content.indexOf("<!-- source-span:", anchorOffset);
+      const contractOffset = guide.content.indexOf(SOURCE_BASE_CONTRACT, anchorOffset);
+      assert.ok(contractOffset > anchorOffset);
+      assert.ok(contractOffset < sourceSpanOffset);
       assert.ok(
         [...movedTargets.values()].some(
           (target) => target === route.path,
@@ -168,5 +188,28 @@ test("tracked historical frontier is exact, routed, and self-contained in all mo
         `${mode}: physical route reaches moved material`,
       );
     }
+
+    const movedBodies = moved.map((disposition) => {
+      const guide = result.guides.find(({ spanIds }) =>
+        spanIds.includes(disposition.sourceSpanId),
+      );
+      return movedGuideBody(guide, disposition.sourceSpanId);
+    });
+    assert.ok(
+      movedBodies.some((body) =>
+        body.includes("[Compact Restart Surface Mode](docs/context_compression.md#compact-restart-surface-mode)"),
+      ),
+    );
+    assert.ok(movedBodies.some((body) => body.includes("`field_notes/021_required_intermediate_node.md`")));
+    assert.ok(
+      movedBodies.some((body) =>
+        body.includes("[Field Note 125](field_notes/125_execution_context_proof_selection.md)"),
+      ),
+    );
+    assert.ok(
+      movedBodies.some((body) =>
+        body.includes("[Field Note 125 operational validation](validation/field_note_125_operational_validation.md)"),
+      ),
+    );
   }
 });
