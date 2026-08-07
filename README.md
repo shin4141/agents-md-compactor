@@ -190,9 +190,9 @@ repository. Run the full automated suite with:
 npm test
 ```
 
-The repository passes 107 automated tests, including a focused historical
-regression test that fixes the 20,664 → 14,284 result, source accounting,
-artifact hashes, and reconnect targets.
+The current candidate's full automated suite passes 108 tests, including a
+focused historical regression test that fixes the 20,664 → 14,284 result,
+source accounting, artifact hashes, and reconnect targets.
 
 ### Three modes, one historical frontier
 
@@ -244,6 +244,13 @@ saving.
 - The tool neither establishes semantic equivalence nor safety certification.
 - v0.1 accepts one pasted `AGENTS.md`; it does not scan repositories, resolve
   nested instruction files, or replace source files automatically.
+
+## Repository working records
+
+Root `AGENTS.md`, `handoff/`, and development-governance records are this
+project's own dogfood/internal operating artifacts: published working examples,
+not end-user instructions. Terms such as Fable, Codex, Capsule, and internal
+Gates refer to this project's development workflow.
 
 ## Development story
 
