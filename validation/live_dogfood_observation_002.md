@@ -1,5 +1,13 @@
 # Live Dogfood Observation 002
 
+## Post-blind-audit public sanitization delta
+
+After the Fable blind audit of fixed base
+`7d20487a2d431a880dbd5cf6ec0b1408df752a96`, the user-specific local workspace
+path in A-3 was replaced with `<local-workspace>/AGENTS.md Compactor`. This
+sanitizes only that personal path; the original audited state remains
+recoverable from Git history.
+
 ## Verdict
 
 `PASS — Compactor-generated persistent instructions produced a spontaneous
@@ -34,7 +42,7 @@ nor product-failure result.
 
 Status: `INVALID OBSERVATION — WRONG WORKSPACE`.
 
-A-3 was opened in `/Users/sn/Documents/AGENTS.md Compactor` at
+A-3 was opened in `<local-workspace>/AGENTS.md Compactor` at
 `f697759dfc20d5406eef6b18b6a83654328c58cc`, not in the generated Observation
 002 instruction surface. Its old private-audit Gate and missing receipt are
 not evidence about the generated package.

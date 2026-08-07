@@ -6,7 +6,8 @@ reviewer or review environment.
 
 ## Fixed identities
 
-- Product engine qualification commit:
+- Private pre-genesis product-engine qualification identifier (not expected to
+  resolve from public repository history):
   `109d52ba59e3bc334c4de8bd8d1975deb0f012d9`
 - Historical source identity:
   `shin4141/decision-os-v13-loopkit@21cd88d4efb378a60cd08a28712083d9d4a8bc19:AGENTS.md`
