@@ -122,8 +122,8 @@ These audits have distinct scopes and must not be collapsed into one result.
 ### Fable — pending
 
 Fable review has not begun. Observation 002 is settled and Fictional Sample 001
-is locally complete, but the sample must first be placed in its bounded Draft
-PR. Fable remains a separate, explicitly authorized read-only stage.
+is complete in bounded Draft PR #5. Fable remains a separate, explicitly
+authorized read-only stage.
 
 Fable must distinguish the separate fixed historical and one-fictional-sample
 facts; structurally plausible but unmeasured repeated-use and future-bloat
@@ -182,28 +182,31 @@ separate explicit decision after reading the complete conversation.
 `V11 — Reconnectable Forgetting / AGENTS.md Compactor`
 
 **Current Gate:**
-`HOLD — bounded fictional-sample Draft PR before Fable`
+`HOLD — Fable read-only review separately unauthorized`
 
 **Current Source of Truth:**
 
 - Canonical product base:
   `a41f20c0a679934157b38ef033b2d67e67f2e0b4`.
 - Local sample branch: `codex/fictional-sample-001`.
+- Initial bounded sample commit: `613b960`.
+- Bounded Draft PR:
+  `https://github.com/shin4141/agents-md-compactor/pull/5`.
 - Frozen source and generated artifacts:
   `validation/fictional_sample_001/`.
 - Canonical sample record: `validation/fictional_sample_001.md`.
 - Historical evidence remains separately rooted at
   `evidence/public_rc_v0_1/EVIDENCE.md`.
 
-**Completion Line:** The commit containing this handoff is the local sample
-PASS: frozen source, exact one-run Balanced result, generated artifacts,
-accounting, routes, validation, and handoff are complete. Full A5 PASS requires
-that commit to be placed in a bounded Draft PR without product, README,
-historical-evidence, image, or Fable work.
+**Completion Line:** `PASS — FICTIONAL SAMPLE 001 FROZEN, VERIFIED, AND PLACED
+IN A BOUNDED DRAFT PR`. The source, exact one-run Balanced result, generated
+artifacts, accounting, routes, validation, handoff, local commit, branch push,
+and Draft PR are complete without product, README, historical-evidence, image,
+merge, or Fable work.
 
 **Missing Closure:**
 
-- branch push and bounded Draft PR;
+- Draft PR review and any separately authorized merge decision;
 - separately authorized Fable read-only review;
 - any separately authorized announcement decision.
 
@@ -218,12 +221,11 @@ the fact that it was frozen before measurement. Do not edit it to improve the
 guides, the move map, the separate historical 30.9% evidence, and the ZIP hash
 as `UNKNOWN` unless an ordinary UI download artifact is recovered coherently.
 
-**Next Authorized Action:** Use any already authorized non-interactive
-repository surface to push `codex/fictional-sample-001` and open a Draft PR
-against canonical `main`. Do not merge.
+**Next Authorized Action:** Preserve Draft PR #5 for bounded review. Do not
+merge or begin Fable without separate authorization.
 
-**First One Action:** Confirm the local sample commit and frozen source hash,
-then attempt the authorized branch push.
+**First One Action:** Confirm Draft PR #5 remains draft and its head contains
+the frozen-source identity before any further authorized review.
 
 **Rollback or Recheck Path:** Revert the bounded sample commit. This removes
 only the fictional source, generated package, checksums, validation record, and

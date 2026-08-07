@@ -2,7 +2,7 @@
 
 ## Classification
 
-`PASS — LOCAL FICTIONAL SAMPLE 001 FROZEN AND VERIFIED`
+`PASS — FICTIONAL SAMPLE 001 FROZEN, VERIFIED, AND IN DRAFT PR`
 
 - Fictional sample: yes; this is an invented repository and invented source.
 - Canonical product repository: `shin4141/agents-md-compactor`
@@ -192,19 +192,20 @@ or comparison target for this fictional sample.
 
 ## Completion and next gate
 
-**Local completion:** `PASS — FICTIONAL SAMPLE 001 FROZEN AND VERIFIED`.
+**Completion:** `PASS — FICTIONAL SAMPLE 001 FROZEN, VERIFIED, AND PLACED IN A
+BOUNDED DRAFT PR`.
 
-**Remote publication:** Pending a non-interactive authorized write surface.
-The source and measured result are already frozen and internally consistent;
-the local commit is the publication candidate. No remote publication failure
-changes the measured facts.
+- Local branch: `codex/fictional-sample-001`
+- Initial bounded sample commit: `613b960`
+- Draft PR: `https://github.com/shin4141/agents-md-compactor/pull/5`
+- Draft state: yes
+- Merge: not performed
 
-**Current Gate:** `HOLD — bounded fictional-sample Draft PR before Fable`.
+**Current Gate:** `HOLD — Fable read-only review separately unauthorized`.
 
-**Next safe action:** Commit the bounded sample locally, then use an already
-authorized non-interactive repository surface to push the branch and open a
-Draft PR if available. Do not merge, begin Fable, create images, change product
-behavior, or change public claims.
+**Next safe action:** Preserve the frozen source, measured result, and Draft PR
+for review. Do not merge, begin Fable, create images, change product behavior,
+or change public claims without separate authorization.
 
 **Rollback:** Revert the bounded sample commit. This removes only the fictional
 source, its generated package, checksums, validation record, and handoff update;
