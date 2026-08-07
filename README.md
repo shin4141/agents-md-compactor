@@ -1,4 +1,3 @@
-<img width="1536" height="1024" alt="03f9d8fe-bea9-42e2-964a-b3f160c2fe92" src="https://github.com/user-attachments/assets/a8743612-6193-4034-8884-7f790b2ac481" />
 # AGENTS.md Compactor
 
 ## Your AGENTS.md does not have to be all-or-nothing.
@@ -61,6 +60,7 @@ the moved knowledge and the traceability needed to reconnect to it.
 
 *Evidence boundary: Shows the fixed historical result for this corpus and mode. It is not a token, cost, latency, model-quality, or general-performance claim. [Evidence and reproducibility](evidence/public_rc_v0_1/EVIDENCE.md)*
 
+<img width="1536" height="1024" alt="03f9d8fe-bea9-42e2-964a-b3f160c2fe92" src="https://github.com/user-attachments/assets/a8743612-6193-4034-8884-7f790b2ac481" />
 ## How the third option works
 
 ```text
