@@ -20,36 +20,31 @@ operating discipline below.
 
 Current Gate:
 
-The reviewed capsule-refit ancestry marker is
-`022eadbc4f4e8cdf654ba655877a053fd50da282`.
+The reviewed Observation 002 settlement ancestry marker is
+`97857d8e52de63520fb0142573dd8387a954660a`.
 
 Before selecting the Gate, refresh canonical `origin/main` and check whether
 that marker is its ancestor:
 
 ```text
-git merge-base --is-ancestor 022eadbc4f4e8cdf654ba655877a053fd50da282 origin/main
+git merge-base --is-ancestor 97857d8e52de63520fb0142573dd8387a954660a origin/main
 ```
 
 - If it is not an ancestor, the Gate is:
-  `HOLD — capsule refit review / merge`.
+  `HOLD — Observation 002 settlement review / merge`.
+  Missing Closure includes review / merge of Draft PR #4, the fictional
+  measured sample, Fable read-only review, and any separately authorized
+  announcement decision. The next authorized action is review and, only with
+  Shin's authorization, merge PR #4.
 - If it is an ancestor, the Gate is:
-  `HOLD — ordinary-user-path dogfood before fictional sample or Fable`.
+  `HOLD — fictional measured sample before Fable`.
+  PR #4 review / merge is no longer Missing Closure. The next product stage is
+  a separately authorized fictional `AGENTS.md` measured sample; it is not
+  Fable.
 
-Do not infer either state from a PR's existence, this branch, or a stale local
-checkout. This branch never authorizes dogfood before the marker is present in
-canonical `main`.
-
-The Lightweight Guidance Receipt marker is merged on canonical `main`. While
-the reviewed capsule-refit marker is absent, the current work may repair only
-repository-persistent operating instructions and handoff state. It does not
-authorize live dogfood, a fictional measured sample, Fable review, a tag,
-GitHub Release, npm publication, announcement, screenshot regeneration,
-product expansion, classifier, router, UI, or behavior change.
-
-After the marker is present in canonical `main`, the next authorized product
-step is ordinary-user-path dogfood under `docs/live_dogfood_protocol.md`. It is
-not Fable review; do not reuse the pre-merge documentation-only boundary to
-describe the post-merge next action.
+Do not infer settlement from this branch, the PR's existence, or a stale local
+checkout. While the marker is absent, this branch does not authorize the
+fictional sample or imply completion of the Observation 002 settlement.
 
 Do not claim a stage complete from file existence, a running UI, partial
 generation, or a happy-path test alone. Each stage must record:

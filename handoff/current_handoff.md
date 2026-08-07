@@ -31,10 +31,15 @@ marker PR #2 merged as canonical main
 
 The marker is shipped in generated output as `🪶 Core only` or
 `🪶 Core + <guides actually read>`. It remains a declaration, not proof of
-guide reading or runtime compliance. Live user-equivalent dogfood has not
-begun. While the capsule-refit ancestry marker is absent from canonical `main`,
-the current work is documentation-only refit review / merge; once it is
-present, the next product step is isolated ordinary-user-path dogfood.
+guide reading or runtime compliance. The capsule-refit PR #3 merged as
+canonical main `c93e3db7fb2eb0d9327e3ef14963ab370731ec32`. Live Dogfood
+Observation 002 established one local zero-guide receipt observation. Its
+bounded settlement is under Draft PR #4 review and is controlled by the
+settlement ancestry marker in the Current Gate section below.
+
+Observation 002 does not establish general compliance, conditional-guide
+reporting, or reconnect-target behavior. It does not authorize the fictional
+sample, and Fable has not begun.
 
 ## Audit lineage
 
@@ -111,10 +116,9 @@ These audits have distinct scopes and must not be collapsed into one result.
 
 ### Fable — pending
 
-Fable review has not begun. Marker merge is complete, but Fable is no longer
-the immediate next step. The required order is capsule refit, ordinary-user-
-path live dogfood, isolated fresh-session observation, a separate fictional
-measured sample, and only then Fable read-only review.
+Fable review has not begun. The required order is Observation 002 settlement
+review / merge, a separate fictional measured sample, and only then Fable
+read-only review.
 
 Fable must distinguish proven fixed-corpus facts; structurally plausible but
 unmeasured repeated-use and future-bloat value; and unsupported token, cost,
@@ -154,92 +158,104 @@ separate explicit decision after reading the complete conversation.
 
 **Current Gate:**
 
-The reviewed capsule-refit ancestry marker is
-`022eadbc4f4e8cdf654ba655877a053fd50da282`.
+The reviewed Observation 002 settlement ancestry marker is
+`97857d8e52de63520fb0142573dd8387a954660a`.
 
 After refreshing canonical `origin/main`, determine the Gate with:
 
 ```text
-git merge-base --is-ancestor 022eadbc4f4e8cdf654ba655877a053fd50da282 origin/main
+git merge-base --is-ancestor 97857d8e52de63520fb0142573dd8387a954660a origin/main
 ```
 
 - Marker absent from canonical `main`:
-  `HOLD — capsule refit review / merge`.
+  `HOLD — Observation 002 settlement review / merge`.
 - Marker present in canonical `main`:
-  `HOLD — ordinary-user-path dogfood before fictional sample or Fable`.
+  `HOLD — fictional measured sample before Fable`.
 
-Do not use PR existence, branch position, or a stale checkout as a merge
-substitute. The branch does not authorize dogfood while the marker is absent.
+Do not use this branch, PR existence, or a stale checkout as a merge
+substitute. The absent marker does not authorize the fictional sample or imply
+that Observation 002 settlement is complete.
 
 **Current Source of Truth:**
 
 - Canonical product main:
-  `437c9f882493a015738d70e8cc89f063c547b2df`.
-- Capsule-refit branch:
-  `codex/v13-capsule-refit-before-dogfood`.
-- Capsule-refit Draft PR:
-  `https://github.com/shin4141/agents-md-compactor/pull/3`.
-- Reviewed capsule-refit ancestry marker:
+  `c93e3db7fb2eb0d9327e3ef14963ab370731ec32`.
+- Capsule-refit ancestry marker (merged through PR #3):
   `022eadbc4f4e8cdf654ba655877a053fd50da282`.
+- Reviewed Observation 002 settlement Draft PR:
+  `https://github.com/shin4141/agents-md-compactor/pull/4`.
+- Reviewed Observation 002 settlement ancestry marker:
+  `97857d8e52de63520fb0142573dd8387a954660a`.
 - V13 capsule-standard source:
   `shin4141/decision-os-v13-loopkit@c81b907951cb223106717b040aa2da034800d81d`.
 - Canonical durable Fit Audit record:
   `docs/capsule_fit_audit.md`.
 - Conditional live sequence:
   `docs/live_dogfood_protocol.md`.
+- Live dogfood record:
+  `validation/live_dogfood_observation_002.md`.
 
-**Completion Line:** A fresh Compactor session can reconstruct the destination,
-source/generated boundary, recursive-compaction gate, persistent dogfood setup,
-conditional routes, exclusions, `UNKNOWN`s, and the ordinary-user-path dogfood
-next step from repository-persistent instructions alone.
+**Completion Line:** If the settlement marker is absent, Observation 002 is a
+reviewed settlement candidate and PR #4 review / merge remains open. If it is
+present, Observation 002 records a local fresh-session `🪶 Core only` receipt
+for the generated zero-guide package without a transient marker prompt; the
+next Gate is held for a separately authorized fictional measured sample before
+Fable.
 
 **Missing Closure:**
 
-- if the ancestry marker is absent: review and merge authorization for
-  capsule-refit Draft PR #3;
-- ordinary-user-path live Compactor dogfood;
-- isolated fresh-session receipt and actual-guide-use observation;
-- separate fictional `AGENTS.md` measured sample;
-- Fable read-only review; and
-- any separately authorized announcement decision.
+- If the settlement marker is absent: review / merge of Draft PR #4; the
+  separate fictional `AGENTS.md` measured sample; Fable read-only review; and
+  any separately authorized announcement decision.
+- If the settlement marker is present: the separate fictional `AGENTS.md`
+  measured sample; Fable read-only review; and any separately authorized
+  announcement decision. PR #4 review / merge is no longer Missing Closure.
 
-**Next Owner:** The executing AI owns routine capsule-refit branch, validation,
-Draft PR, and handoff hygiene. Shin retains the final Seat and merge authority.
+**Next Owner:** The executing AI owns Observation 002 settlement integrity,
+PR #4 review / merge hygiene while its marker is absent, preservation of the
+remaining `UNKNOWN`s, validation, and handoff hygiene. Shin retains the final
+Seat and merge authority. The executing AI does not gain authority to start the
+fictional sample.
 
-**What the Receiving AI Now Owns:** Keep the capsule refit documentation-only,
-preserve the Fit Audit record, and first resolve the ancestry marker against
-fresh canonical `main`. If absent, close review feedback on Draft PR #3; if
-present, reconnect to the isolated dogfood protocol. Do not infer merge from
-this branch or a stale checkout.
+**What the Receiving AI Now Owns:** Preserve the Observation 002 record,
+including its zero-guide scope, A-3 invalid-observation boundary, and remaining
+`UNKNOWN`s. While the settlement marker is absent, own PR #4 review / merge
+hygiene; after it is present, preserve the settled record. Do not promote the
+result to general compliance, erase unresolved conditional-guide or reconnect
+behavior, or start the fictional sample without separate authority.
 
-**Next Authorized Action:** If the ancestry marker is absent, review and, only
-with Shin's authorization, merge documentation-only Draft PR #3. If present,
-the next product step is ordinary-user-path dogfood following
-`docs/live_dogfood_protocol.md`; it is not Fable.
+**Next Authorized Action:** If the settlement marker is absent, review and,
+only with Shin's authorization, merge PR #4. If it is present, no fictional
+sample authorization is carried by this record; with separate authorization,
+the next product stage is the fictional `AGENTS.md` measured sample, not Fable.
 
-**First One Action:** Refresh canonical `origin/main` and run the ancestry
-check above. Inspect Draft PR #3 only when the marker is absent; otherwise read
-`docs/live_dogfood_protocol.md` before any dogfood action.
+**First One Action:** Refresh canonical `origin/main` and run the settlement
+ancestry check above. If absent, reconnect to PR #4 review / merge; if present,
+keep the Gate at `HOLD` until Shin separately authorizes the fictional measured
+sample. Before that sample, read `docs/live_dogfood_protocol.md`.
 
-**Rollback or Recheck Path:** Before merge, close the refit PR and leave
-canonical main `437c9f882493a015738d70e8cc89f063c547b2df` unchanged. If a review
-finds a disposition or reconnect trigger unsupported, update the same Fit Audit
-record and remain `HOLD`; do not change product behavior in that repair.
+**Rollback or Recheck Path:** If the marker is absent, leave canonical main
+unchanged and close or revise PR #4 only as documentary settlement work. If it
+is present, recheck Observation 002 against
+`validation/live_dogfood_observation_002.md`, its source and generated hashes,
+and its claim boundary. If a discrepancy is found, preserve it as observation
+evidence, update the same Fit Audit record, and remain `HOLD`; do not repair
+product behavior inside that review.
 
-**Known Boundaries:** One historical corpus is not general performance. Unicode
-code points are not tokens. The complete package is larger than the source.
-Routes and the receipt do not guarantee runtime compliance. No token, cost,
-latency, model-performance, safety, adoption, or public-release claim is
-established.
+**Known Boundaries:** Observation 002 is one local zero-guide result.
+Observation 001 remains transport-incomplete, and A-3 is an invalid
+wrong-workspace observation. Unicode code points are not tokens. The complete
+package can be larger than the source. Routes and the receipt do not guarantee
+runtime compliance. Nonzero-guide reporting and automatic recursive-input
+detection remain `UNKNOWN`, and repository reconnect-target use was not
+exercised in the fresh context. No token, cost, latency, model-performance,
+safety, adoption, or public-release claim is established.
 
-**Do Not Continue Boundary:** While the ancestry marker is absent, do not run
-Compactor on the refitted source `AGENTS.md`, replace it with generated output,
-add a feather marker manually, start the fictional sample, or begin Fable. Once
-the marker is present, begin dogfood only as the next separately authorized
-operation under `docs/live_dogfood_protocol.md`; this refit does not authorize
-product behavior, classifier, router, UI, tests, evidence, screenshots, README
-claims, LICENSE, visibility, tags, GitHub Releases, npm publication, or
-announcements.
+**Do Not Continue Boundary:** Do not begin the fictional sample or Fable, run
+Compactor again, replace a source with generated output, add a feather marker
+manually, or change product behavior, classifier, router, UI, tests, evidence,
+screenshots, README claims, LICENSE, visibility, tags, GitHub Releases, npm
+publication, or announcements without separate authorization.
 
 **What must not be returned to the Decision Owner:** routine wording, checksum
 maintenance, test grouping, branch cleanup, deterministic evidence maintenance,

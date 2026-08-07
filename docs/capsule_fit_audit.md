@@ -23,6 +23,30 @@ operating surfaces may summarize or link to it; they do not replace it.
 - [Fit Audit re-evaluation trigger](https://github.com/shin4141/decision-os-v13-loopkit/blob/c81b907951cb223106717b040aa2da034800d81d/docs/new_repo_scaffold_standard.md#fit-audit-re-evaluation-trigger)
 - [Compactor regression case](https://github.com/shin4141/decision-os-v13-loopkit/blob/c81b907951cb223106717b040aa2da034800d81d/docs/new_repo_scaffold_standard.md#compactor-regression-case)
 
+## Live Dogfood Observation 002
+
+[`validation/live_dogfood_observation_002.md`](../validation/live_dogfood_observation_002.md)
+is the bounded record of the one local observation. It used canonical source
+commit `c93e3db7fb2eb0d9327e3ef14963ab370731ec32`, its root `AGENTS.md`, and
+Balanced mode. The ordinary UI returned `NO_ACTIVE_REDUCTION`: 7,587 source
+code points became 7,763 generated active code points (+176 / +2.3%), with
+zero generated guides. The generated package was recovered through the
+documented Review with your AI clipboard path and installed only in an
+isolated copy.
+
+A fresh Codex context rooted in that generated persistent instruction surface
+received no transient marker prompt and ended its neutral read-only response
+with `🪶 Core only`. This is `PASS` for the zero-guide receipt case only: the
+receipt matches zero generated guides. Its project surface contained only the
+generated artifacts and did not expose `.git`, so canonical Gate reconstruction
+was not testable. Repository reconnect-target use was not exercised in that
+fresh context. These limitations do not change the zero-guide receipt PASS;
+nonzero-guide and reconnect behavior remain `UNKNOWN`. They are an
+environment/repository-identity limitation, not a Compactor product defect.
+Observation 001 remains `GENERATION OBSERVED / TRANSPORT INCOMPLETE`, and A-3
+remains `INVALID OBSERVATION — WRONG WORKSPACE`; neither is counted as receipt
+evidence.
+
 ## Active guards
 
 1. **Source / generated identity.** The root repository `AGENTS.md` is the
@@ -107,13 +131,23 @@ operating surfaces may summarize or link to it; they do not replace it.
    Sources: Active / Conditional / Excluded placement; Compactor regression
    case.
 
+## Closed observation
+
+1. **CLOSED — zero-guide receipt case.** Observation 002 established one local
+   fresh Codex context that emitted `🪶 Core only` from the generated persistent
+   package without a transient marker prompt. Its zero generated guides match
+   that declaration. This closes only that bounded observation; it does not
+   prove general runtime compliance. Source:
+   [`validation/live_dogfood_observation_002.md`](../validation/live_dogfood_observation_002.md).
+
 ## UNKNOWN
 
-1. Whether a fresh Codex session will actually read the required guides and
-   emit a receipt matching its real guide use remains `UNKNOWN` until
-   user-equivalent live dogfood. The marker contract and tests do not prove
-   runtime compliance. Any behavior repair would require separate authority.
-   Source: Compactor regression case.
+1. Whether a nonzero generated-guide case will report the guides actually read
+   correctly remains `UNKNOWN`. Observation 002 emitted zero guides and the
+   fresh context did not exercise repository reconnect targets, so it cannot
+   establish conditional-guide use, reconnect behavior, or reporting. The
+   marker contract and tests do not prove runtime compliance. Source: Compactor
+   regression case; Observation 002.
 2. Automatic product-level recognition and rejection of already-generated
    Compactor input is not established. This capsule supplies an operator gate;
    it does not claim runtime detection. Product behavior change is future work
@@ -126,8 +160,8 @@ operating surfaces may summarize or link to it; they do not replace it.
 | source versus generated identity | Active 1 |
 | double / recursive compaction | Active 2; runtime detection UNKNOWN 2 |
 | persistent versus transient instruction | Active 3 |
-| reconnectable guidance | Conditional 1–3 with active routes in `AGENTS.md` |
-| user-equivalent versus developer-only dogfood | Active 3; Conditional 1 |
+| reconnectable guidance | Conditional 1–3 with active routes in `AGENTS.md`; nonzero-guide reporting UNKNOWN 1 |
+| user-equivalent versus developer-only dogfood | Active 3; Conditional 1; zero-guide local receipt CLOSED 1 |
 | context loss and restartability | Active 7; Conditional 2 |
 | instruction / safety-boundary loss | Active 4 |
 | public claim versus evidence | Active 5; Conditional 3 |
