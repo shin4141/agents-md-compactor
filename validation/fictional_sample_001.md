@@ -6,12 +6,14 @@
 
 - Fictional sample: yes; this is an invented repository and invented source.
 - Canonical product repository: `shin4141/agents-md-compactor`
-- Canonical product base: `a41f20c0a679934157b38ef033b2d67e67f2e0b4`
+- Fictional sample measurement base:
+  `a41f20c0a679934157b38ef033b2d67e67f2e0b4`
 - Local measurement branch: `codex/fictional-sample-001`
 - Mode reserved for the one measurement: Balanced
 - Historical 30.9% corpus: separate and not used to construct this source
-- Product, README, historical evidence, screenshot, image, and Fable changes:
-  none
+- At measurement time, product, README, historical evidence, screenshot, image,
+  and Fable changes: none. Later PR integration inherits only canonical main's
+  approved README comparison-image line from `b8beca8e70658bc73ae547b73895e2a530ee6afd`.
 
 ## Fictional repository purpose and plausibility
 
@@ -155,11 +157,13 @@ It was not edited after the product result was seen.
 
 ## Scope and verification
 
-Changed product/runtime files: none. Changed README, historical evidence,
-tests, screenshots, images, LICENSE, or feather-marker syntax: none. Fable was
-not begun. The only intended changes are this fictional validation record, its
-frozen source, the five copied generated artifacts, `SHA256SUMS`, and the
-restartable handoff.
+PR-specific product/runtime files: none. PR-specific README, historical
+evidence, test, screenshot, image, LICENSE, or feather-marker-syntax edits:
+none. README appears only through the unchanged canonical-main merge commit
+`b8beca8e70658bc73ae547b73895e2a530ee6afd`, which adds the approved comparison
+image. Fable was not begun. The only sample-specific changes are this fictional
+validation record, its frozen source, the five copied generated artifacts,
+`SHA256SUMS`, the root gate transition, and the restartable handoff.
 
 Verification for the bounded local sample includes source and artifact
 SHA-256 checks, UTF-8 byte and Unicode code-point counts, complete accounting,
@@ -201,11 +205,52 @@ BOUNDED DRAFT PR`.
 - Draft state: yes
 - Merge: not performed
 
-**Current Gate:** `HOLD — Fable read-only review separately unauthorized`.
+**Gate transition:** The reviewed sample marker is
+`bc5e513e4891bd912a8515c9ea98abb8cd27d755`. After refreshing canonical
+`origin/main`, check whether it is an ancestor.
 
-**Next safe action:** Preserve the frozen source, measured result, and Draft PR
-for review. Do not merge, begin Fable, create images, change product behavior,
-or change public claims without separate authorization.
+- Marker absent: `HOLD — Fictional Sample 001 review / merge`; Missing Closure
+  includes PR #5 review / merge, Fable read-only review, and any separately
+  authorized README/Fable-link or announcement decision. The next authorized
+  action is review and, only with Shin authorization, merge PR #5.
+- Marker present: `HOLD — Fable read-only review separately unauthorized`; PR
+  #5 review / merge disappears from Missing Closure. The next stage is Fable
+  read-only review, only with separate Shin authorization.
+
+The frozen measurement base remains
+`a41f20c0a679934157b38ef033b2d67e67f2e0b4`; the later current canonical main
+`b8beca8e70658bc73ae547b73895e2a530ee6afd` is an integration reference only.
+Do not infer marker settlement from the feature branch, PR existence, or a
+stale checkout.
+
+**Next safe action:** Refresh canonical main and follow the marker-selected
+gate. Do not begin Fable, create images, change product behavior, or change
+public claims without separate authorization.
+
+## Integration closure verification
+
+- Latest canonical main integrated:
+  `b8beca8e70658bc73ae547b73895e2a530ee6afd`.
+- Its only incoming change is the approved README comparison-image line. The
+  integrated branch's `README.md` blob is exactly the canonical-main blob
+  `887f35842e4017c4455b273a96dd65f93c9ab676`; there is no README difference
+  versus that main commit.
+- Measurement base preserved and still an ancestor of this branch:
+  `a41f20c0a679934157b38ef033b2d67e67f2e0b4`.
+- Pre-merge marker check against refreshed canonical main: absent; selected
+  Gate is `HOLD — Fictional Sample 001 review / merge`.
+- Post-merge selector check against the integrated branch: present; selected
+  Gate is `HOLD — Fable read-only review separately unauthorized`.
+- `SHA256SUMS` validates the frozen source and all five generated artifacts;
+  no frozen-source or generated-artifact diff exists since marker
+  `bc5e513e4891bd912a8515c9ea98abb8cd27d755`.
+- Changed-Markdown relative links: PASS.
+- `npm test`: 108 passed; historical reproduction: PASS; `git diff --check`:
+  PASS.
+
+The remaining PR-specific paths are the root self-settling gate,
+`handoff/current_handoff.md`, and `validation/fictional_sample_001*`.
+`README.md` is inherited canonical-main history only, not a sample edit.
 
 **Rollback:** Revert the bounded sample commit. This removes only the fictional
 source, its generated package, checksums, validation record, and handoff update;

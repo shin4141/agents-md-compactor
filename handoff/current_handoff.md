@@ -32,19 +32,31 @@ marker PR #2 merged as canonical main
 The marker is shipped in generated output as `🪶 Core only` or
 `🪶 Core + <guides actually read>`. It remains a declaration, not proof of
 guide reading or runtime compliance. The capsule-refit PR #3 and Live Dogfood
-Observation 002 settlement are ancestors of canonical main
-`a41f20c0a679934157b38ef033b2d67e67f2e0b4`.
+Observation 002 settlement are ancestors of Fictional Sample 001's frozen
+measurement base `a41f20c0a679934157b38ef033b2d67e67f2e0b4`.
 
-Fictional Sample 001 is locally complete on
-`codex/fictional-sample-001`, based exactly on that canonical commit. Its
-invented Lumen Draft source was frozen before measurement at SHA-256
+Canonical main then advanced with the approved comparison-image-only commit
+`b8beca8e70658bc73ae547b73895e2a530ee6afd`. That exact README image change is
+integrated into this branch without a PR-specific README edit; it does not
+change the fictional measurement base or result.
+
+After refreshing that canonical main, the reviewed Fictional Sample 001 marker
+is absent, so the current pre-merge Gate is `HOLD — Fictional Sample 001 review
+/ merge`. The integrated branch contains the marker, verifying the post-merge
+selector path to the separate Fable hold without treating the branch as a merge
+substitute.
+
+Fictional Sample 001 was measured from
+`a41f20c0a679934157b38ef033b2d67e67f2e0b4` and is locally complete on
+`codex/fictional-sample-001`. Its invented Lumen Draft source was frozen before
+measurement at SHA-256
 `335b64177c3f44bb557eb99712aa770272b924cf595a3adfcecfcefca9bca0c9`.
 The single ordinary Balanced UI run returned `COMPACTED`: 13,413 to 10,799
 Unicode code points, 2,614 / 19.5% active reduction; three guides; 16/13/3
 source accounting; zero folded, deleted, or unaccounted spans; three reconnect
 routes; and a 17,889-code-point package, +33.4% versus source. All five
 generated text artifacts were recovered through the UI and frozen byte-exactly.
-Fable and image work have not begun.
+Fable has not begun, and no sample-specific image work occurred.
 
 ## Audit lineage
 
@@ -121,9 +133,10 @@ These audits have distinct scopes and must not be collapsed into one result.
 
 ### Fable — pending
 
-Fable review has not begun. Observation 002 is settled and Fictional Sample 001
-is complete in bounded Draft PR #5. Fable remains a separate, explicitly
-authorized read-only stage.
+Fable review has not begun. If the Fictional Sample 001 marker is absent from
+canonical main, Draft PR #5 remains in review / merge closure. Once the marker
+is an ancestor of canonical main, the next stage is Fable read-only review only
+with separate Shin authorization.
 
 Fable must distinguish the separate fixed historical and one-fictional-sample
 facts; structurally plausible but unmeasured repeated-use and future-bloat
@@ -182,12 +195,36 @@ separate explicit decision after reading the complete conversation.
 `V11 — Reconnectable Forgetting / AGENTS.md Compactor`
 
 **Current Gate:**
-`HOLD — Fable read-only review separately unauthorized`
+
+The reviewed Fictional Sample 001 ancestry marker is
+`bc5e513e4891bd912a8515c9ea98abb8cd27d755`.
+
+After refreshing canonical `origin/main`, determine the Gate with:
+
+```text
+git fetch origin main
+git merge-base --is-ancestor bc5e513e4891bd912a8515c9ea98abb8cd27d755 origin/main
+```
+
+- Marker absent from canonical `main`:
+  `HOLD — Fictional Sample 001 review / merge`.
+- Marker present in canonical `main`:
+  `HOLD — Fable read-only review separately unauthorized`.
+
+Do not infer settlement from the feature branch, PR existence, or a stale local
+checkout. In this private-archive checkout, use the refreshed `canonical/main`
+as the canonical equivalent of `origin/main` for the same ancestry check.
 
 **Current Source of Truth:**
 
-- Canonical product base:
+- Fictional Sample 001 measurement base:
   `a41f20c0a679934157b38ef033b2d67e67f2e0b4`.
+- Current canonical main after the approved comparison image:
+  `b8beca8e70658bc73ae547b73895e2a530ee6afd`.
+- Reviewed Fictional Sample 001 marker:
+  `bc5e513e4891bd912a8515c9ea98abb8cd27d755`.
+- Integration: current branch merges `b8beca8e70658bc73ae547b73895e2a530ee6afd`
+  unchanged, including its README image line.
 - Local sample branch: `codex/fictional-sample-001`.
 - Initial bounded sample commit: `613b960`.
 - Bounded Draft PR:
@@ -200,15 +237,19 @@ separate explicit decision after reading the complete conversation.
 
 **Completion Line:** `PASS — FICTIONAL SAMPLE 001 FROZEN, VERIFIED, AND PLACED
 IN A BOUNDED DRAFT PR`. The source, exact one-run Balanced result, generated
-artifacts, accounting, routes, validation, handoff, local commit, branch push,
-and Draft PR are complete without product, README, historical-evidence, image,
-merge, or Fable work.
+artifacts, accounting, routes, validation, branch push, and Draft PR are
+complete. The approved canonical README image is integrated unchanged. The
+marker-driven Gate below now settles pre-merge versus post-merge closure without
+rewriting the measurement base.
 
 **Missing Closure:**
 
-- Draft PR review and any separately authorized merge decision;
-- separately authorized Fable read-only review;
-- any separately authorized announcement decision.
+- If the marker is absent: review / merge of Draft PR #5, Fable read-only
+  review, and any separately authorized README/Fable-link or announcement
+  decision.
+- If the marker is present: Fable read-only review and any separately
+  authorized README/Fable-link or announcement decision. PR #5 review / merge
+  is no longer Missing Closure.
 
 **Next Owner:** The executing AI owns local validation, commit, non-interactive
 publication attempts, Draft PR hygiene, and restartable record maintenance.
@@ -221,11 +262,13 @@ the fact that it was frozen before measurement. Do not edit it to improve the
 guides, the move map, the separate historical 30.9% evidence, and the ZIP hash
 as `UNKNOWN` unless an ordinary UI download artifact is recovered coherently.
 
-**Next Authorized Action:** Preserve Draft PR #5 for bounded review. Do not
-merge or begin Fable without separate authorization.
+**Next Authorized Action:** If the marker is absent, review and, only with
+Shin authorization, merge PR #5. If the marker is present, the next stage is
+Fable read-only review only with separate Shin authorization.
 
-**First One Action:** Confirm Draft PR #5 remains draft and its head contains
-the frozen-source identity before any further authorized review.
+**First One Action:** Refresh canonical `origin/main` and run the marker
+ancestry check. If absent, reconnect to PR #5 review / merge; if present,
+preserve the Fable hold until separately authorized.
 
 **Rollback or Recheck Path:** Revert the bounded sample commit. This removes
 only the fictional source, generated package, checksums, validation record, and
@@ -241,10 +284,11 @@ identity remains `UNKNOWN`; all constituent text artifacts are exact. No
 token, cost, latency, model-performance, quality, safety, adoption, superiority,
 or general-reliability claim is established.
 
-**Do Not Continue Boundary:** Do not merge, begin Fable, create images, change
-product behavior, classifier, router, UI, tests, README claims, historical
-evidence, screenshots, LICENSE, marker syntax, visibility, tags, GitHub
-Releases, npm publication, or announcements.
+**Do Not Continue Boundary:** Do not begin Fable, create images, change product
+behavior, classifier, router, UI, tests, README claims, historical evidence,
+screenshots, LICENSE, marker syntax, visibility, tags, GitHub Releases, npm
+publication, or announcements. While the marker is absent, do not merge PR #5
+without Shin authorization.
 
 **What must not be returned to the Decision Owner:** routine branch handling,
 authentication cleanup, checksum maintenance, test grouping, deterministic
