@@ -22,8 +22,8 @@ const EXPECTED_ARTIFACTS = [
 ];
 const EXPECTED_HASHES = new Map([
   ["AGENTS.md", "934bfcb6355ddcb065e09da0071d1c5cac8b2d59ebdf6d3cc2bf0d8880652b35"],
-  ["agent-guides/handoff.md", "7951186b3f6ca7d578c853e419df212e2cd0e2893fd57aa2c7bf1590968d5b39"],
-  ["agent-guides/other.md", "68e32ca18e842676087e06f5e273c503dfbd4df4757a9daaf596cd8f58a598a5"],
+  ["agent-guides/handoff.md", "6efc716da1c89e1de7f4fe5b32e249d4b69daa7d31a1c78fa97a76d343fb2423"],
+  ["agent-guides/other.md", "9188866936b5ded0d36161ac9ae57419992f68fe8957177e896df65a392820fe"],
   ["move-map.md", "745211070a2153d114b1e5dc646e79764ddcefb66393f0675185372f8e4ecd2c"],
 ]);
 const EXPECTED_MOVED_BODY_HASHES = new Map([
@@ -41,6 +41,13 @@ const EXPECTED_MOVED_BODY_HASHES = new Map([
   ["S030-45819aca", "5cb4917844a4d2c6b3302ff7b7de9c789a8f95461379f98103ec519ed17442c1"],
   ["S031-839255fb", "7aa407951eaac7a1109e485b70271498af6c3b35e550fe96e2138309b6c2f45e"],
 ]);
+const SOURCE_BASE_CONTRACT = [
+  "### Source Base Contract",
+  "",
+  "Relative file references and relative Markdown links inside a preserved moved source span are resolved from the directory containing the installed generated active `AGENTS.md` — the original source-file base — not from the generated guide's directory. This preserves the original reference base only; it does not establish that a target exists.",
+].join("\n");
+const SOURCE_BASE_REMINDER =
+  "> **Source base:** Resolve relative references in the preserved source body below from the installed active `AGENTS.md` directory.";
 
 function sha256(value) {
   return createHash("sha256").update(value).digest("hex");
@@ -114,6 +121,9 @@ for (const mode of MODES) {
     assert.equal(Buffer.compare(Buffer.from(artifact.content), expected), 0, `${mode}: ${artifact.path}`);
     assert.equal(sha256(expected), EXPECTED_HASHES.get(artifact.path));
   }
+  for (const guide of result.guides) {
+    assert.equal(occurrences(guide.content, SOURCE_BASE_CONTRACT), 1);
+  }
 
   assert.equal(codePoints(result.activeAgentsMd.content), 14284);
   assert.equal(result.counts.before.characters - result.counts.after.characters, 6380);
@@ -138,6 +148,14 @@ for (const mode of MODES) {
     const guide = result.guides.find(({ spanIds }) => spanIds.includes(disposition.sourceSpanId));
     assert.ok(guide, `${mode}: guide owns ${disposition.sourceSpanId}`);
     assert.equal(guideBody(guide, disposition.sourceSpanId), sourceBody);
+    const sourceSpanOffset = guide.content.indexOf(
+      `<!-- source-span: ${disposition.sourceSpanId} -->`,
+    );
+    const reminderOffset = guide.content.lastIndexOf(SOURCE_BASE_REMINDER, sourceSpanOffset);
+    assert.notEqual(reminderOffset, -1, `${mode}: source base reminder precedes moved body`);
+    assert.ok(reminderOffset < sourceSpanOffset);
+    assert.ok(!sourceBody.includes(SOURCE_BASE_CONTRACT));
+    assert.ok(!sourceBody.includes(SOURCE_BASE_REMINDER));
     movedTargets.set(
       disposition.sourceSpanId,
       reconnectTargetForSpan(guide, disposition.sourceSpanId),
@@ -153,6 +171,11 @@ for (const mode of MODES) {
     assert.ok(guide, `${mode}: route file exists: ${path}`);
     assert.equal(occurrences(guide.content, `<a id="${anchor}"></a>`), 1);
     assert.equal(occurrences(result.activeAgentsMd.content, `read \`${entry.path}\``), 1);
+    const anchorOffset = guide.content.indexOf(`<a id="${anchor}"></a>`);
+    const sourceSpanOffset = guide.content.indexOf("<!-- source-span:", anchorOffset);
+    const reminderOffset = guide.content.indexOf(SOURCE_BASE_REMINDER, anchorOffset);
+    assert.ok(reminderOffset > anchorOffset);
+    assert.ok(reminderOffset < sourceSpanOffset);
     assert.ok(
       [...movedTargets.values()].some(
         (target) => target === entry.path,
@@ -165,7 +188,7 @@ for (const mode of MODES) {
     (total, artifact) => total + codePoints(artifact.content),
     0,
   );
-  assert.equal(completePackage, 32383);
+  assert.equal(completePackage, 34447);
 }
 
 console.log(JSON.stringify({
@@ -176,8 +199,8 @@ console.log(JSON.stringify({
   activeCodePoints: 14284,
   actualReductionCodePoints: 6380,
   actualReductionPercentage: 30.9,
-  completePackageCodePoints: 32383,
-  completePackageIncreasePercentage: 56.7,
+  completePackageCodePoints: 34447,
+  completePackageIncreasePercentage: 66.7,
   sourceSpans: 41,
   retainedSpans: 28,
   movedSpans: 13,

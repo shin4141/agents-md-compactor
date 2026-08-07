@@ -1705,6 +1705,14 @@ function renderGuideSourceSpan(decision, preserveWholeSection = false) {
   return `<!-- source-span: ${decision.span.id} -->\n${content}<!-- /source-span: ${decision.span.id} -->`;
 }
 
+const SOURCE_BASE_CONTRACT = [
+  "### Source Base Contract",
+  "",
+  "Relative file references and relative Markdown links inside a preserved moved source span are resolved from the directory containing the installed generated active `AGENTS.md` — the original source-file base — not from the generated guide's directory. This preserves the original reference base only; it does not establish that a target exists.",
+].join("\n");
+const SOURCE_BASE_REMINDER =
+  "> **Source base:** Resolve relative references in the preserved source body below from the installed active `AGENTS.md` directory.";
+
 function decisionRouteSpec(decision, guidePath) {
   let definition;
   let inline = false;
@@ -1764,7 +1772,7 @@ function renderGuide(category, decisions) {
     routedGroups.set(spec.path, existing);
   }
 
-  const sections = [];
+  const sections = [SOURCE_BASE_CONTRACT];
   if (ordinary.length > 0) {
     sections.push(
       ordinary.map((decision) => renderGuideSourceSpan(decision)).join("\n\n"),
@@ -1774,7 +1782,7 @@ function renderGuide(category, decisions) {
     (left, right) => left.spec.sourceStart - right.spec.sourceStart,
   )) {
     sections.push(
-      `<a id="${group.spec.guideAnchor}"></a>\n## ${group.spec.guideHeading}\n\n${group.decisions
+      `<a id="${group.spec.guideAnchor}"></a>\n## ${group.spec.guideHeading}\n\n${SOURCE_BASE_REMINDER}\n\n${group.decisions
         .sort((left, right) => left.span.start - right.span.start)
         .map((decision) => renderGuideSourceSpan(decision, true))
         .join("\n\n")}`,
@@ -2301,6 +2309,7 @@ function assertGeneratedInvariants(input, result) {
   }
 
   const guidePaths = new Set();
+  const guideByPath = new Map();
   const movedIds = [];
   for (const guide of result.guides) {
     if (
@@ -2319,6 +2328,7 @@ function assertGeneratedInvariants(input, result) {
       malformed(`duplicate guide path: ${guide.path}`);
     }
     guidePaths.add(guide.path);
+    guideByPath.set(guide.path, guide);
     movedIds.push(...guide.spanIds);
 
     if (
@@ -2328,6 +2338,9 @@ function assertGeneratedInvariants(input, result) {
       ) !== 1
     ) {
       malformed(`guide ${guide.path} is missing its receipt instruction`);
+    }
+    if (countOccurrences(guide.content, SOURCE_BASE_CONTRACT) !== 1) {
+      malformed(`guide ${guide.path} is missing one source base contract`);
     }
 
     for (const spanId of guide.spanIds) {
@@ -2371,6 +2384,27 @@ function assertGeneratedInvariants(input, result) {
             entry.insertionOffset > input.length))
       ) {
         malformed(`guide ${route.path} has a malformed active route`);
+      }
+      const [guidePath, anchor] = entry.path.split("#");
+      if (anchor) {
+        const guide = guideByPath.get(guidePath);
+        const anchorOffset = guide.content.indexOf(`<a id="${anchor}"></a>`);
+        const sourceSpanOffset = guide.content.indexOf(
+          "<!-- source-span:",
+          anchorOffset,
+        );
+        const reminderOffset = guide.content.indexOf(
+          SOURCE_BASE_REMINDER,
+          anchorOffset,
+        );
+        if (
+          anchorOffset === -1 ||
+          sourceSpanOffset === -1 ||
+          reminderOffset <= anchorOffset ||
+          reminderOffset >= sourceSpanOffset
+        ) {
+          malformed(`route ${entry.path} is missing its source base reminder`);
+        }
       }
       seenPaths.add(entry.path);
       if (

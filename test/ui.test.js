@@ -152,9 +152,9 @@ test("counts are rendered from the contract result", () => {
       "Actual active AGENTS.md reduction: 46.5% (991 fewer characters). Outcome: COMPACTED.",
     sourceExternalization:
       "Source instructions externalized: 71.7% (1528 characters moved to guides).",
-    completePackageCharacters: 5874,
+    completePackageCharacters: 7362,
     completePackageComparison:
-      "Complete emitted package: 5874 Unicode code points (175.5% larger than the original). The complete package is larger because moved instructions and their traceability are preserved. The 46.5% result applies to the always-loaded active AGENTS.md, not to total repository text.",
+      "Complete emitted package: 7362 Unicode code points (245.3% larger than the original). The complete package is larger because moved instructions and their traceability are preserved. The 46.5% result applies to the always-loaded active AGENTS.md, not to total repository text.",
   });
 });
 
@@ -172,8 +172,8 @@ test("no-growth view models separate actual active change from source externaliz
     viewModel.counts.sourceExternalization,
     "Source instructions externalized: 84.8% (524 characters moved to guides).",
   );
-  assert.match(viewModel.counts.completePackageComparison, /Complete emitted package: 4054/);
-  assert.match(viewModel.counts.completePackageComparison, /556\.0% larger/);
+  assert.match(viewModel.counts.completePackageComparison, /Complete emitted package: 6658/);
+  assert.match(viewModel.counts.completePackageComparison, /977\.3% larger/);
   assert.match(
     viewModel.counts.completePackageComparison,
     /active-file comparison applies to the always-loaded active AGENTS\.md/,

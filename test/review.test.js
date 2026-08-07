@@ -49,11 +49,11 @@ test("reduction facts keep generated-file and retained-source comparisons distin
       percentage: 46.5,
     },
     completePackage: {
-      characters: 5874,
+      characters: 7362,
       relativeToOriginal: {
         kind: "increase",
-        characters: 3742,
-        percentage: 175.5,
+        characters: 5230,
+        percentage: 245.3,
       },
     },
     sourceExternalization: {
@@ -77,7 +77,7 @@ test("reduction facts keep generated-file and retained-source comparisons distin
   );
   assert.equal(
     formatCompletePackage(facts),
-    "Complete emitted package: 5874 Unicode code points (175.5% larger than the original). The complete package is larger because moved instructions and their traceability are preserved. The 46.5% result applies to the always-loaded active AGENTS.md, not to total repository text.",
+    "Complete emitted package: 7362 Unicode code points (245.3% larger than the original). The complete package is larger because moved instructions and their traceability are preserved. The 46.5% result applies to the always-loaded active AGENTS.md, not to total repository text.",
   );
 });
 

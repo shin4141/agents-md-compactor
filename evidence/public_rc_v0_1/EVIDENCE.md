@@ -23,8 +23,8 @@ guides, and `move-map.md`.
 | Expected artifact | SHA-256 |
 |---|---|
 | `expected/AGENTS.md` | `934bfcb6355ddcb065e09da0071d1c5cac8b2d59ebdf6d3cc2bf0d8880652b35` |
-| `expected/agent-guides/handoff.md` | `7951186b3f6ca7d578c853e419df212e2cd0e2893fd57aa2c7bf1590968d5b39` |
-| `expected/agent-guides/other.md` | `68e32ca18e842676087e06f5e273c503dfbd4df4757a9daaf596cd8f58a598a5` |
+| `expected/agent-guides/handoff.md` | `6efc716da1c89e1de7f4fe5b32e249d4b69daa7d31a1c78fa97a76d343fb2423` |
+| `expected/agent-guides/other.md` | `9188866936b5ded0d36161ac9ae57419992f68fe8957177e896df65a392820fe` |
 | `expected/move-map.md` | `745211070a2153d114b1e5dc646e79764ddcefb66393f0675185372f8e4ecd2c` |
 
 ## Exact result
@@ -35,8 +35,8 @@ guides, and `move-map.md`.
 | Generated active file | 14,284 code points |
 | Actual active-file reduction | 6,380 code points / 30.9% |
 | Outcome | `COMPACTED` |
-| Full emitted package | 32,383 code points |
-| Package relative to original | 11,719 code points / 56.7% larger |
+| Full emitted package | 34,447 code points |
+| Package relative to original | 13,783 code points / 66.7% larger |
 | Source spans | 41 |
 | Retained active | 28 |
 | Moved to guides | 13 |
@@ -48,11 +48,16 @@ guides, and `move-map.md`.
 
 The complete package is larger because it preserves moved knowledge and its
 traceability. The 30.9% result applies only to the complete always-loaded
-active `AGENTS.md`; it is not a reduction in total repository text.
+active `AGENTS.md`; it is not a reduction in total repository text. Each
+generated guide places one Source Base Contract near its beginning and a short
+source-base reminder before each routed moved body: relative file references
+and relative Markdown links in those bodies resolve from the installed
+generated active `AGENTS.md` directory, not the guide directory. This preserves
+the source reference base; it does not assert target existence.
 
 Secondary measurements are 20,671 UTF-16 code units / 20,705 UTF-8 bytes for
 the original and 14,286 UTF-16 code units / 14,331 UTF-8 bytes for the active
-output. The complete package is 32,392 UTF-16 code units / 32,625 UTF-8 bytes.
+output. The complete package is 34,456 UTF-16 code units / 34,697 UTF-8 bytes.
 
 Conservative, Balanced, and Aggressive produce the same four expected files on
 this governance-heavy historical fixture. That equality is a conservative

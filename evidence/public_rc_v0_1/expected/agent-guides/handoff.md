@@ -1,7 +1,13 @@
 # Handoff Guidance
 
+### Source Base Contract
+
+Relative file references and relative Markdown links inside a preserved moved source span are resolved from the directory containing the installed generated active `AGENTS.md` — the original source-file base — not from the generated guide's directory. This preserves the original reference base only; it does not establish that a target exists.
+
 <a id="minimal-handoff"></a>
 ## Minimal Handoff
+
+> **Source base:** Resolve relative references in the preserved source body below from the installed active `AGENTS.md` directory.
 
 <!-- source-span: S004-663955ad -->
 Minimal handoff:
@@ -26,6 +32,8 @@ Then produce the V13 Loop Record.
 
 <a id="chat-continuation"></a>
 ## Chat Continuation
+
+> **Source base:** Resolve relative references in the preserved source body below from the installed active `AGENTS.md` directory.
 
 <!-- source-span: S018-5ad40d78 -->
 ## Chat Continuation Footer
@@ -69,6 +77,8 @@ Rules:
 
 <a id="context-compression"></a>
 ## Context Compression
+
+> **Source base:** Resolve relative references in the preserved source body below from the installed active `AGENTS.md` directory.
 
 <!-- source-span: S031-839255fb -->
 ## Context Compression Footer
