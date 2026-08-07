@@ -90,6 +90,44 @@ routes and its Lightweight Guidance Receipt, is smaller than the original.
 Otherwise the outcome is `NO_ACTIVE_REDUCTION`; the tool does not present
 externalized text as active-file reduction.
 
+## Quick start from GitHub
+
+You need a current Node.js runtime. This repository does not require an
+`npm install` step.
+
+### Your AGENTS.md stays local
+
+- No upload
+- No storage
+- No analytics
+- No training
+- Compaction runs locally in the browser
+- `Review with your AI` copies the generated package to the clipboard only
+- Nothing is sent to an AI service unless you choose to paste it there
+
+See the [Privacy boundary](#privacy-boundary) for the full limitations.
+
+1. Click GitHub's `Code` button and choose `Download ZIP`.
+2. Unzip the downloaded repository.
+3. Open Terminal.
+4. Change into the extracted `agents-md-compactor` folder. One simple option is
+   to type `cd` followed by a space, drag that folder into Terminal, and press
+   Return.
+5. Confirm Node.js is available:
+
+   ```sh
+   node --version
+   ```
+
+6. In that same Terminal window, start the local UI:
+
+   ```sh
+   npm run ui
+   ```
+
+7. Open <http://127.0.0.1:4173> in your browser.
+8. Paste one `AGENTS.md`, choose a mode, and select **Generate**.
+
 ## v0.1 Promise
 
 Paste one long `AGENTS.md`, select a mode, and inspect a generated package
