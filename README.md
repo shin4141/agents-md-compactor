@@ -285,3 +285,14 @@ ZIP.
 ## License
 
 Licensed under the [Apache License 2.0](LICENSE).
+
+<img width="1237" height="670" alt="スクリーンショット 2026-08-07 17 13 16" src="https://github.com/user-attachments/assets/17f5132b-6ae4-432b-9210-f8fe27bbc472" />
+
+## Independent Fable assessment
+
+[![Independent Fable 5 assessment](docs/images/<screenshot-file>.png)](https://claude.ai/share/42e55369-9fa6-4c1c-aa5e-906496efd29e)
+
+*Independent Fable 5 expert assessment of the fixed repository transformation.
+Percentages shown are expert estimates, not benchmark measurements.
+Click the image to read the full prompt, independent verification, reasoning, and caveats.*
+
