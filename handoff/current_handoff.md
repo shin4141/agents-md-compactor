@@ -9,11 +9,12 @@ below. Those historical records remain preserved for their own evidence states.
 - Working branch: `codex/source-relative-reference-preservation`.
 - Defect: a byte-preserved moved body could give a relative path or Markdown
   link a guide-relative meaning after relocation.
-- Repair: deterministic Source Base Contract metadata now precedes every
-  routed moved-source section and is outside every preserved source-span body.
+- Repair: each generated guide now carries the full deterministic Source Base
+  Contract once; a short source-base reminder precedes every routed moved-source
+  section and is outside every preserved source-span body.
 - Active historical artifact: unchanged at 14,284 Unicode code points and
   SHA-256 `934bfcb6355ddcb065e09da0071d1c5cac8b2d59ebdf6d3cc2bf0d8880652b35`.
-- Current complete package: 36,103 Unicode code points; 15,439 / 74.7% larger
+- Current complete package: 34,447 Unicode code points; 13,783 / 66.7% larger
   than the 20,664-code-point source. This replaces the former generated-package
   total only; the active 6,380 / 30.9% reduction remains unchanged.
 - Accounting: 41 total / 28 retained / 13 moved / 0 folded / 0 deleted / 0
@@ -23,7 +24,7 @@ below. Those historical records remain preserved for their own evidence states.
   `git diff --check` PASS.
 - Public screenshot: the factually stale result-metrics capture was refreshed
   from the actual local application with the fixed source and Balanced mode;
-  raw SHA-256 `cd1f1f67b6d55d845ab15051249f1f44d9749b3d711c5f2d07bf38ad1d621877`.
+  raw SHA-256 `9c6a74005699adb01e443f889a5cdfc2b663f5f82b96313493edd9ab3375ec33`.
 
 **Current Gate:** `HOLD — source-relative reference repair review`.
 

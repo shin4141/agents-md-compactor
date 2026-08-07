@@ -9,7 +9,7 @@
 | 41 spans have exactly one disposition: 28 active, 13 moved | `test/historical-frontier.test.js`, `reproduce.mjs` |
 | Four generated artifacts match fixed hashes | `SHA256SUMS`, `test/historical-frontier.test.js`, `reproduce.mjs` |
 | All 13 moved bodies retain exact bytes | `test/historical-frontier.test.js`, `reproduce.mjs` |
-| Source Base Contract precedes every routed moved body and leaves it untouched | `test/historical-frontier.test.js`, `reproduce.mjs` |
+| Each guide carries one Source Base Contract; a source-base reminder precedes every routed moved body and leaves it untouched | `test/historical-frontier.test.js`, `reproduce.mjs` |
 | Ten routes reach existing files, physical anchors, and moved material | `test/historical-frontier.test.js`, `reproduce.mjs` |
 | All three modes reach the same safe frontier on this hard corpus | `test/historical-frontier.test.js`, `reproduce.mjs` |
 | Review exposes the active and complete-package comparison | `test/review.test.js`, `test/ui.test.js` |

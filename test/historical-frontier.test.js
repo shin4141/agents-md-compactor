@@ -20,10 +20,12 @@ const SOURCE_BASE_CONTRACT = [
   "",
   "Relative file references and relative Markdown links inside a preserved moved source span are resolved from the directory containing the installed generated active `AGENTS.md` — the original source-file base — not from the generated guide's directory. This preserves the original reference base only; it does not establish that a target exists.",
 ].join("\n");
+const SOURCE_BASE_REMINDER =
+  "> **Source base:** Resolve relative references in the preserved source body below from the installed active `AGENTS.md` directory.";
 const ARTIFACT_HASHES = new Map([
   ["AGENTS.md", "934bfcb6355ddcb065e09da0071d1c5cac8b2d59ebdf6d3cc2bf0d8880652b35"],
-  ["agent-guides/handoff.md", "6e5fa52901b789b8084f2927e91cf25f7c5e61d8847252cf2c2206b07bdf7d91"],
-  ["agent-guides/other.md", "1c4cf73acd98dec278eb0be432a43927f80c7ef65d00340fca16c1eb9f743198"],
+  ["agent-guides/handoff.md", "6efc716da1c89e1de7f4fe5b32e249d4b69daa7d31a1c78fa97a76d343fb2423"],
+  ["agent-guides/other.md", "9188866936b5ded0d36161ac9ae57419992f68fe8957177e896df65a392820fe"],
   ["move-map.md", "745211070a2153d114b1e5dc646e79764ddcefb66393f0675185372f8e4ecd2c"],
 ]);
 const MOVED_BODY_HASHES = new Map([
@@ -80,8 +82,8 @@ test("tracked historical frontier is exact, routed, and self-contained in all mo
     /0 unique instructions deleted/u,
     /13\/13 moved instruction bodies[\s>]+preserved byte-for-byte/u,
     /Conditional instructions move out of the always-loaded file without being\s+deleted; reconnect triggers remain active\./u,
-    /36,103 Unicode code points/u,
-    /\+74\.7% versus the original/u,
+    /34,447 Unicode code points/u,
+    /\+66\.7% versus the original/u,
     /the active `AGENTS\.md`, not the total emitted\s+package/u,
   ]) {
     assert.match(README, claim);
@@ -90,8 +92,8 @@ test("tracked historical frontier is exact, routed, and self-contained in all mo
     EVIDENCE_RECORD,
     /semantic rewrite baseline — not a lossless\s+compression target/u,
   );
-  assert.match(EVIDENCE_RECORD, /36,103 code points/);
-  assert.match(EVIDENCE_RECORD, /74\.7% larger/);
+  assert.match(EVIDENCE_RECORD, /34,447 code points/);
+  assert.match(EVIDENCE_RECORD, /66\.7% larger/);
   assert.doesNotMatch(
     README,
     /total(?:-| )(?:emitted )?package reduction|token reduction|cost reduction|latency improvement|model-performance improvement/iu,
@@ -121,11 +123,11 @@ test("tracked historical frontier is exact, routed, and self-contained in all mo
     assert.equal(result.counts.exactDuplicateCharactersFolded, 0);
     assert.equal(result.counts.uniqueInstructionsDeleted, 0);
     assert.equal(result.counts.unaccountedSourceSpans, 0);
-    assert.equal(facts.completePackage.characters, 36103);
+    assert.equal(facts.completePackage.characters, 34447);
     assert.deepEqual(facts.completePackage.relativeToOriginal, {
       kind: "increase",
-      characters: 15439,
-      percentage: 74.7,
+      characters: 13783,
+      percentage: 66.7,
     });
 
     assert.deepEqual(artifacts.map(({ path }) => path), [...ARTIFACT_HASHES.keys()]);
@@ -133,6 +135,9 @@ test("tracked historical frontier is exact, routed, and self-contained in all mo
       const expected = readFileSync(new URL(`expected/${artifact.path}`, EVIDENCE), "utf8");
       assert.equal(artifact.content, expected, `${mode}: tracked ${artifact.path}`);
       assert.equal(sha256(artifact.content), ARTIFACT_HASHES.get(artifact.path));
+    }
+    for (const guide of result.guides) {
+      assert.equal(count(guide.content, SOURCE_BASE_CONTRACT), 1);
     }
 
     const moved = result.sourceAccounting.dispositions.filter(
@@ -151,13 +156,14 @@ test("tracked historical frontier is exact, routed, and self-contained in all mo
       const sourceSpanOffset = guide.content.indexOf(
         `<!-- source-span: ${disposition.sourceSpanId} -->`,
       );
-      const contractOffset = guide.content.lastIndexOf(
-        SOURCE_BASE_CONTRACT,
+      const reminderOffset = guide.content.lastIndexOf(
+        SOURCE_BASE_REMINDER,
         sourceSpanOffset,
       );
-      assert.notEqual(contractOffset, -1, "source base contract precedes moved body");
-      assert.ok(contractOffset < sourceSpanOffset);
+      assert.notEqual(reminderOffset, -1, "source base reminder precedes moved body");
+      assert.ok(reminderOffset < sourceSpanOffset);
       assert.ok(!sourceBody.includes(SOURCE_BASE_CONTRACT));
+      assert.ok(!sourceBody.includes(SOURCE_BASE_REMINDER));
       movedTargets.set(
         disposition.sourceSpanId,
         reconnectTargetForSpan(guide, disposition.sourceSpanId),
@@ -178,9 +184,9 @@ test("tracked historical frontier is exact, routed, and self-contained in all mo
       assert.equal(count(result.activeAgentsMd.content, `read \`${route.path}\``), 1);
       const anchorOffset = guide.content.indexOf(`<a id="${anchor}"></a>`);
       const sourceSpanOffset = guide.content.indexOf("<!-- source-span:", anchorOffset);
-      const contractOffset = guide.content.indexOf(SOURCE_BASE_CONTRACT, anchorOffset);
-      assert.ok(contractOffset > anchorOffset);
-      assert.ok(contractOffset < sourceSpanOffset);
+      const reminderOffset = guide.content.indexOf(SOURCE_BASE_REMINDER, anchorOffset);
+      assert.ok(reminderOffset > anchorOffset);
+      assert.ok(reminderOffset < sourceSpanOffset);
       assert.ok(
         [...movedTargets.values()].some(
           (target) => target === route.path,
