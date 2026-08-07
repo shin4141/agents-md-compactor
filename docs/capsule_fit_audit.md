@@ -10,7 +10,7 @@
 - V13 capsule-standard source:
   `shin4141/decision-os-v13-loopkit@c81b907951cb223106717b040aa2da034800d81d`
 - Compactor source commit used:
-  `c93e3db7fb2eb0d9327e3ef14963ab370731ec32`
+  `437c9f882493a015738d70e8cc89f063c547b2df`
 - As-of: 2026-08-07
 
 This file is the canonical durable Fit Audit record for this repository. Other
@@ -37,12 +37,15 @@ isolated copy.
 A fresh Codex context rooted in that generated persistent instruction surface
 received no transient marker prompt and ended its neutral read-only response
 with `🪶 Core only`. This is `PASS` for the zero-guide receipt case only: the
-receipt matches zero generated guides. The fresh project surface did not expose
-`.git`, so canonical Gate reconstruction was correctly reported as `UNKNOWN`;
-that is an environment/repository-identity limitation, not a Compactor product
-defect. Observation 001 remains `GENERATION OBSERVED / TRANSPORT INCOMPLETE`,
-and A-3 remains `INVALID OBSERVATION — WRONG WORKSPACE`; neither is counted as
-receipt evidence.
+receipt matches zero generated guides. Its project surface contained only the
+generated artifacts and did not expose `.git`, so canonical Gate reconstruction
+was not testable. Repository reconnect-target use was not exercised in that
+fresh context. These limitations do not change the zero-guide receipt PASS;
+nonzero-guide and reconnect behavior remain `UNKNOWN`. They are an
+environment/repository-identity limitation, not a Compactor product defect.
+Observation 001 remains `GENERATION OBSERVED / TRANSPORT INCOMPLETE`, and A-3
+remains `INVALID OBSERVATION — WRONG WORKSPACE`; neither is counted as receipt
+evidence.
 
 ## Active guards
 
@@ -140,10 +143,11 @@ receipt evidence.
 ## UNKNOWN
 
 1. Whether a nonzero generated-guide case will report the guides actually read
-   correctly remains `UNKNOWN`. Observation 002 emitted zero guides, so it
-   cannot establish conditional-guide use or reporting. The marker contract and
-   tests do not prove runtime compliance. Source: Compactor regression case;
-   Observation 002.
+   correctly remains `UNKNOWN`. Observation 002 emitted zero guides and the
+   fresh context did not exercise repository reconnect targets, so it cannot
+   establish conditional-guide use, reconnect behavior, or reporting. The
+   marker contract and tests do not prove runtime compliance. Source: Compactor
+   regression case; Observation 002.
 2. Automatic product-level recognition and rejection of already-generated
    Compactor input is not established. This capsule supplies an operator gate;
    it does not claim runtime detection. Product behavior change is future work

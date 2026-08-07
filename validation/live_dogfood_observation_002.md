@@ -77,10 +77,13 @@ The response identified the repository as `shin4141/agents-md-compactor` and
 ended spontaneously with the observed receipt above. No transient marker or
 developer-special prompting was supplied.
 
-The fresh project import did not expose a `.git` repository. It therefore did
-not establish the canonical Gate and reported that state as `UNKNOWN` rather
+The fresh response reported that its project surface contained only generated
+artifacts and did not expose a `.git` repository. Canonical Gate reconstruction
+was therefore not testable, and repository reconnect-target use was not
+exercised in that fresh context. It reported Gate state as `UNKNOWN` rather
 than guessing or advancing. This is an environment/repository-identity
-limitation, not a Compactor product defect or receipt failure.
+limitation, not a Compactor product defect or receipt failure, and it does not
+change the zero-guide receipt PASS.
 
 ## Claim boundaries and remaining UNKNOWN
 
@@ -90,7 +93,8 @@ limitation, not a Compactor product defect or receipt failure.
   `🪶 Core only` without a transient marker prompt, matching zero generated
   guides.
 - `UNKNOWN`: whether a nonzero generated-guide case reports the guides actually
-  read correctly.
+  read correctly, or exercises and reports repository reconnect-target use
+  correctly.
 - `UNKNOWN`: automatic product-level recognition or rejection of recursive
   Compactor input.
 - No token, cost, latency, performance, adoption, semantic-equivalence, or

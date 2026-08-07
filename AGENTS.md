@@ -20,18 +20,31 @@ operating discipline below.
 
 Current Gate:
 
-`HOLD — fictional measured sample before Fable`
+The reviewed Observation 002 settlement ancestry marker is
+`97857d8e52de63520fb0142573dd8387a954660a`.
 
-The capsule-refit marker is present in canonical `main`
-`c93e3db7fb2eb0d9327e3ef14963ab370731ec32`. Live Dogfood Observation 002 is
-settled in `validation/live_dogfood_observation_002.md`: one local fresh Codex
-context emitted the generated zero-guide receipt with no transient marker
-prompt. That receipt remains a declaration, not proof of general runtime
-compliance or nonzero-guide behavior.
+Before selecting the Gate, refresh canonical `origin/main` and check whether
+that marker is its ancestor:
 
-The next product stage is a separately authorized fictional `AGENTS.md`
-measured sample. It is not authorized by this capsule or observation record,
-and Fable review must not begin before that separate sample is complete.
+```text
+git merge-base --is-ancestor 97857d8e52de63520fb0142573dd8387a954660a origin/main
+```
+
+- If it is not an ancestor, the Gate is:
+  `HOLD — Observation 002 settlement review / merge`.
+  Missing Closure includes review / merge of Draft PR #4, the fictional
+  measured sample, Fable read-only review, and any separately authorized
+  announcement decision. The next authorized action is review and, only with
+  Shin's authorization, merge PR #4.
+- If it is an ancestor, the Gate is:
+  `HOLD — fictional measured sample before Fable`.
+  PR #4 review / merge is no longer Missing Closure. The next product stage is
+  a separately authorized fictional `AGENTS.md` measured sample; it is not
+  Fable.
+
+Do not infer settlement from this branch, the PR's existence, or a stale local
+checkout. While the marker is absent, this branch does not authorize the
+fictional sample or imply completion of the Observation 002 settlement.
 
 Do not claim a stage complete from file existence, a running UI, partial
 generation, or a happy-path test alone. Each stage must record:

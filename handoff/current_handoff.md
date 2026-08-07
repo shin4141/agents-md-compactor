@@ -33,12 +33,13 @@ The marker is shipped in generated output as `🪶 Core only` or
 `🪶 Core + <guides actually read>`. It remains a declaration, not proof of
 guide reading or runtime compliance. The capsule-refit PR #3 merged as
 canonical main `c93e3db7fb2eb0d9327e3ef14963ab370731ec32`. Live Dogfood
-Observation 002 then established one local zero-guide receipt observation;
-its bounded record is `validation/live_dogfood_observation_002.md`.
+Observation 002 established one local zero-guide receipt observation. Its
+bounded settlement is under Draft PR #4 review and is controlled by the
+settlement ancestry marker in the Current Gate section below.
 
-Observation 002 does not establish general compliance or conditional-guide
-reporting. The current Gate is `HOLD — fictional measured sample before Fable`.
-That sample requires separate authorization and Fable has not begun.
+Observation 002 does not establish general compliance, conditional-guide
+reporting, or reconnect-target behavior. It does not authorize the fictional
+sample, and Fable has not begun.
 
 ## Audit lineage
 
@@ -115,9 +116,9 @@ These audits have distinct scopes and must not be collapsed into one result.
 
 ### Fable — pending
 
-Fable review has not begun. Capsule refit and the isolated ordinary-user-path
-live dogfood observation are complete. The required order now continues with a
-separate fictional measured sample, and only then Fable read-only review.
+Fable review has not begun. The required order is Observation 002 settlement
+review / merge, a separate fictional measured sample, and only then Fable
+read-only review.
 
 Fable must distinguish proven fixed-corpus facts; structurally plausible but
 unmeasured repeated-use and future-bloat value; and unsupported token, cost,
@@ -157,11 +158,23 @@ separate explicit decision after reading the complete conversation.
 
 **Current Gate:**
 
-`HOLD — fictional measured sample before Fable`
+The reviewed Observation 002 settlement ancestry marker is
+`97857d8e52de63520fb0142573dd8387a954660a`.
 
-Live Dogfood Observation 002 is settled only as a local zero-guide receipt
-observation. It does not authorize the fictional sample, Fable, a product
-repair, or any public claim.
+After refreshing canonical `origin/main`, determine the Gate with:
+
+```text
+git merge-base --is-ancestor 97857d8e52de63520fb0142573dd8387a954660a origin/main
+```
+
+- Marker absent from canonical `main`:
+  `HOLD — Observation 002 settlement review / merge`.
+- Marker present in canonical `main`:
+  `HOLD — fictional measured sample before Fable`.
+
+Do not use this branch, PR existence, or a stale checkout as a merge
+substitute. The absent marker does not authorize the fictional sample or imply
+that Observation 002 settlement is complete.
 
 **Current Source of Truth:**
 
@@ -169,6 +182,10 @@ repair, or any public claim.
   `c93e3db7fb2eb0d9327e3ef14963ab370731ec32`.
 - Capsule-refit ancestry marker (merged through PR #3):
   `022eadbc4f4e8cdf654ba655877a053fd50da282`.
+- Reviewed Observation 002 settlement Draft PR:
+  `https://github.com/shin4141/agents-md-compactor/pull/4`.
+- Reviewed Observation 002 settlement ancestry marker:
+  `97857d8e52de63520fb0142573dd8387a954660a`.
 - V13 capsule-standard source:
   `shin4141/decision-os-v13-loopkit@c81b907951cb223106717b040aa2da034800d81d`.
 - Canonical durable Fit Audit record:
@@ -178,34 +195,48 @@ repair, or any public claim.
 - Live dogfood record:
   `validation/live_dogfood_observation_002.md`.
 
-**Completion Line:** Observation 002 records a local fresh-session
-`🪶 Core only` receipt for the generated zero-guide package without a transient
-marker prompt. The next Gate is held for a separately authorized fictional
-measured sample before Fable.
+**Completion Line:** If the settlement marker is absent, Observation 002 is a
+reviewed settlement candidate and PR #4 review / merge remains open. If it is
+present, Observation 002 records a local fresh-session `🪶 Core only` receipt
+for the generated zero-guide package without a transient marker prompt; the
+next Gate is held for a separately authorized fictional measured sample before
+Fable.
 
 **Missing Closure:**
 
-- separate fictional `AGENTS.md` measured sample;
-- Fable read-only review; and
-- any separately authorized announcement decision.
+- If the settlement marker is absent: review / merge of Draft PR #4; the
+  separate fictional `AGENTS.md` measured sample; Fable read-only review; and
+  any separately authorized announcement decision.
+- If the settlement marker is present: the separate fictional `AGENTS.md`
+  measured sample; Fable read-only review; and any separately authorized
+  announcement decision. PR #4 review / merge is no longer Missing Closure.
 
-**Next Owner:** The executing AI owns routine capsule-refit branch, validation,
-Draft PR, and handoff hygiene. Shin retains the final Seat and merge authority.
+**Next Owner:** The executing AI owns Observation 002 settlement integrity,
+PR #4 review / merge hygiene while its marker is absent, preservation of the
+remaining `UNKNOWN`s, validation, and handoff hygiene. Shin retains the final
+Seat and merge authority. The executing AI does not gain authority to start the
+fictional sample.
 
 **What the Receiving AI Now Owns:** Preserve the Observation 002 record,
 including its zero-guide scope, A-3 invalid-observation boundary, and remaining
-`UNKNOWN`s. Do not promote the result to general compliance or erase unresolved
-conditional-guide behavior.
+`UNKNOWN`s. While the settlement marker is absent, own PR #4 review / merge
+hygiene; after it is present, preserve the settled record. Do not promote the
+result to general compliance, erase unresolved conditional-guide or reconnect
+behavior, or start the fictional sample without separate authority.
 
-**Next Authorized Action:** No fictional sample authorization is carried by
-this record. With separate authorization, the next product stage is the
-fictional `AGENTS.md` measured sample; it is not Fable.
+**Next Authorized Action:** If the settlement marker is absent, review and,
+only with Shin's authorization, merge PR #4. If it is present, no fictional
+sample authorization is carried by this record; with separate authorization,
+the next product stage is the fictional `AGENTS.md` measured sample, not Fable.
 
-**First One Action:** Keep the Gate at `HOLD` until Shin separately authorizes
-the fictional measured sample. Before that sample, read
-`docs/live_dogfood_protocol.md`.
+**First One Action:** Refresh canonical `origin/main` and run the settlement
+ancestry check above. If absent, reconnect to PR #4 review / merge; if present,
+keep the Gate at `HOLD` until Shin separately authorizes the fictional measured
+sample. Before that sample, read `docs/live_dogfood_protocol.md`.
 
-**Rollback or Recheck Path:** Recheck Observation 002 against
+**Rollback or Recheck Path:** If the marker is absent, leave canonical main
+unchanged and close or revise PR #4 only as documentary settlement work. If it
+is present, recheck Observation 002 against
 `validation/live_dogfood_observation_002.md`, its source and generated hashes,
 and its claim boundary. If a discrepancy is found, preserve it as observation
 evidence, update the same Fit Audit record, and remain `HOLD`; do not repair
@@ -216,8 +247,9 @@ Observation 001 remains transport-incomplete, and A-3 is an invalid
 wrong-workspace observation. Unicode code points are not tokens. The complete
 package can be larger than the source. Routes and the receipt do not guarantee
 runtime compliance. Nonzero-guide reporting and automatic recursive-input
-detection remain `UNKNOWN`. No token, cost, latency, model-performance, safety,
-adoption, or public-release claim is established.
+detection remain `UNKNOWN`, and repository reconnect-target use was not
+exercised in the fresh context. No token, cost, latency, model-performance,
+safety, adoption, or public-release claim is established.
 
 **Do Not Continue Boundary:** Do not begin the fictional sample or Fable, run
 Compactor again, replace a source with generated output, add a feather marker
