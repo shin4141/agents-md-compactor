@@ -113,6 +113,25 @@ See the [Privacy boundary](#privacy-boundary) for the full limitations.
 4. In Finder, locate the extracted `agents-md-compactor-main` folder. In
    Terminal, type `cd` followed by a space, drag that folder from Finder into
    the Terminal window, then press Return.
+
+### Terminal example
+
+```text
+Finder
+agents-md-compactor-main
+        │
+        │ drag this folder after typing: cd[space]
+        ▼
+Terminal
+cd /.../agents-md-compactor-main
+        │
+        │ press Return
+        ▼
+... agents-md-compactor-main %
+```
+
+The `/.../` path is illustrative only; if your Terminal prompt now ends with `agents-md-compactor-main %`, you are in the right folder—continue with Step 5.
+
 5. Confirm Node.js is available:
 
    ```sh
