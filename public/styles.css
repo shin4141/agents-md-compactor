@@ -136,6 +136,36 @@ form {
   gap: 0.75rem;
 }
 
+.sample-first {
+  margin-block-end: 0.5rem;
+  padding: 1.15rem;
+  border: 2px solid #263b53;
+  border-radius: 0.5rem;
+  background: #f3f6f8;
+}
+
+.sample-first h3 {
+  font-size: 1.15rem;
+}
+
+.sample-first p {
+  margin-block-end: 0.65rem;
+}
+
+.sample-result {
+  color: #263b53;
+  font-size: 1.05rem;
+}
+
+.sample-loaded-status {
+  margin: 0 !important;
+  padding: 0.65rem 0.75rem;
+  border-inline-start: 4px solid #327a45;
+  background: #eef9f0;
+  color: #245f34;
+  font-weight: 700;
+}
+
 label,
 dt {
   font-weight: 700;
@@ -352,6 +382,22 @@ pre:focus-visible {
   color: #714b00;
 }
 
+.sample-next-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-block: 1rem;
+  padding: 1rem;
+  border: 2px solid #263b53;
+  border-radius: 0.5rem;
+  background: #f3f6f8;
+}
+
+.sample-next-action p {
+  margin: 0;
+}
+
 .summary-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(0, 1fr));
@@ -542,6 +588,11 @@ pre:focus-visible {
   }
 
   .receipt-note {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .sample-next-action {
     align-items: flex-start;
     flex-direction: column;
   }

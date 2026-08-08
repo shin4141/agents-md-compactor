@@ -18,6 +18,10 @@ const JAPANESE_FIXTURE = readFileSync(
   new URL("./fixtures/japanese-operations.md", import.meta.url),
   "utf8",
 );
+const DEMONSTRATED_SAMPLE = readFileSync(
+  new URL("../evidence/public_rc_v0_1/BEFORE_AGENTS.md", import.meta.url),
+  "utf8",
+);
 const INDEX_HTML = readFileSync(
   new URL("../public/index.html", import.meta.url),
   "utf8",
@@ -37,6 +41,10 @@ function createView({ input = LARGE_FIXTURE, mode = "Balanced" } = {}) {
   let selectedPath = null;
   let visiblePaths = [];
   let actionFeedback = { message: "", type: "success" };
+  let sampleState = "idle";
+  let inputFocusCount = 0;
+  let generateFocusCount = 0;
+  let resultClearCount = 0;
 
   return {
     getInput: () => currentInput,
@@ -61,6 +69,21 @@ function createView({ input = LARGE_FIXTURE, mode = "Balanced" } = {}) {
     setMode(value) {
       currentMode = value;
     },
+    setSampleState(value) {
+      sampleState = value;
+    },
+    clearResult() {
+      currentResult = null;
+      visiblePaths = [];
+      selectedPath = null;
+      resultClearCount += 1;
+    },
+    focusInput() {
+      inputFocusCount += 1;
+    },
+    focusGenerate() {
+      generateFocusCount += 1;
+    },
     selectPath(path) {
       if (!visiblePaths.includes(path)) {
         throw new RangeError(`Unknown visible path: ${path}`);
@@ -80,6 +103,10 @@ function createView({ input = LARGE_FIXTURE, mode = "Balanced" } = {}) {
         selectedPath,
         visiblePaths,
         actionFeedback,
+        sampleState,
+        inputFocusCount,
+        generateFocusCount,
+        resultClearCount,
       };
     },
   };
@@ -102,6 +129,60 @@ test("Generate waits for invocation and calls the contract with the exact mode",
   assert.equal(calls[0].input, LARGE_FIXTURE);
   assert.equal(calls[0].mode, "Balanced");
   assert.equal(view.snapshot().input, LARGE_FIXTURE);
+});
+
+test("sample-first flow loads the exact historical source and uses the ordinary product path", () => {
+  const calls = [];
+  const view = createView({ input: "user source", mode: "Aggressive" });
+  const controller = createCompactorController(view, {
+    demonstratedSampleSource: DEMONSTRATED_SAMPLE,
+    compact(input, mode) {
+      calls.push({ input, mode });
+      return compactAgentsMd(input, mode);
+    },
+  });
+
+  controller.loadDemonstratedSample();
+  const loaded = view.snapshot();
+  assert.equal(loaded.input, DEMONSTRATED_SAMPLE);
+  assert.equal(loaded.mode, "Balanced");
+  assert.equal(loaded.sampleState, "loaded");
+  assert.equal(loaded.result, null);
+  assert.equal(loaded.inputFocusCount, 0);
+  assert.equal(loaded.generateFocusCount, 1);
+  assert.deepEqual(calls, [], "loading the sample does not inject a result");
+
+  const result = controller.generate();
+  assert.deepEqual(calls, [
+    { input: DEMONSTRATED_SAMPLE, mode: "Balanced" },
+  ]);
+  assert.equal(result.counts.beforeCharacters, 20_664);
+  assert.equal(result.counts.activeCharacters, 14_284);
+  assert.match(result.counts.actualActiveComparison, /30\.9%/u);
+  assert.equal(result.counts.movedSpanCount, 13);
+  assert.equal(result.counts.uniqueInstructionsDeleted, 0);
+  assert.equal(view.snapshot().sampleState, "generated");
+});
+
+test("Try your own AGENTS.md clears the demonstrated sample and result", () => {
+  const view = createView();
+  const controller = createCompactorController(view, {
+    demonstratedSampleSource: DEMONSTRATED_SAMPLE,
+  });
+
+  controller.loadDemonstratedSample();
+  controller.generate();
+  controller.tryOwnAgentsMd();
+
+  const reset = view.snapshot();
+  assert.equal(reset.input, "");
+  assert.equal(reset.mode, "Balanced");
+  assert.equal(reset.result, null);
+  assert.deepEqual(reset.visiblePaths, []);
+  assert.equal(reset.sampleState, "idle");
+  assert.equal(reset.inputFocusCount, 1);
+  assert.equal(reset.generateFocusCount, 1);
+  assert.equal(reset.resultClearCount, 2);
 });
 
 test("a successful result exposes active AGENTS.md, every guide, and move-map.md", () => {
@@ -222,7 +303,7 @@ test("COMPACTED and NO_ACTIVE_REDUCTION have distinct, non-celebratory presentat
 
 test("page hierarchy keeps reduction primary and gates downstream actions", () => {
   const expectedFlow = [
-    "Paste AGENTS.md",
+    "Try sample or paste AGENTS.md",
     "Choose a mode",
     "Generate",
     "Inspect the result",

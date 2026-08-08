@@ -130,6 +130,7 @@ export function createCompactorController(
     download,
     buildZip = createDeterministicZip,
     buildReview = buildReviewPrompt,
+    demonstratedSampleSource,
   } = {},
 ) {
   for (const method of [
@@ -144,7 +145,33 @@ export function createCompactorController(
     requireViewMethod(view, method);
   }
 
+  if (demonstratedSampleSource !== undefined) {
+    if (
+      typeof demonstratedSampleSource !== "string" ||
+      demonstratedSampleSource.length === 0
+    ) {
+      throw new TypeError("Demonstrated sample source must be a non-empty string");
+    }
+    for (const method of [
+      "setInput",
+      "setMode",
+      "setSampleState",
+      "clearResult",
+      "focusInput",
+      "focusGenerate",
+    ]) {
+      requireViewMethod(view, method);
+    }
+  }
+
   let current = null;
+
+  const clearCurrentResult = () => {
+    current = null;
+    view.clearResult();
+    view.showError("");
+    view.showActionFeedback("", "success");
+  };
 
   const refreshedArtifacts = () => {
     if (!current) {
@@ -173,6 +200,13 @@ export function createCompactorController(
         const viewModel = createResultViewModel(result, artifacts);
         view.showResult(viewModel);
         current = { input, mode, result };
+        if (demonstratedSampleSource !== undefined) {
+          view.setSampleState(
+            input === demonstratedSampleSource && mode === "Balanced"
+              ? "generated"
+              : "idle",
+          );
+        }
         view.showError("");
         view.showActionFeedback("", "success");
         return viewModel;
@@ -180,6 +214,25 @@ export function createCompactorController(
         view.showError(formatUiError(error));
         return null;
       }
+    },
+    loadDemonstratedSample() {
+      if (demonstratedSampleSource === undefined) {
+        throw new Error("DEMONSTRATED_SAMPLE_UNAVAILABLE");
+      }
+      view.setInput(demonstratedSampleSource);
+      view.setMode("Balanced");
+      clearCurrentResult();
+      view.setSampleState("loaded");
+      view.focusGenerate();
+    },
+    tryOwnAgentsMd() {
+      if (demonstratedSampleSource === undefined) {
+        throw new Error("DEMONSTRATED_SAMPLE_UNAVAILABLE");
+      }
+      view.setInput("");
+      clearCurrentResult();
+      view.setSampleState("idle");
+      view.focusInput();
     },
     async copySelected() {
       try {
@@ -266,6 +319,10 @@ function requiredElement(root, selector) {
 export function createDomView(root = document) {
   const source = requiredElement(root, "#source-agents-md");
   const mode = requiredElement(root, "#mode");
+  const generateButton = requiredElement(
+    root,
+    "#compactor-form button[type=\"submit\"]",
+  );
   const error = requiredElement(root, "#error-output");
   const results = requiredElement(root, "#results");
   const resultStatus = requiredElement(root, "#result-status");
@@ -300,6 +357,8 @@ export function createDomView(root = document) {
   const selectedFile = requiredElement(root, "#selected-file");
   const filePreview = requiredElement(root, "#file-preview");
   const actionFeedback = requiredElement(root, "#action-feedback");
+  const sampleLoadedStatus = requiredElement(root, "#sample-loaded-status");
+  const sampleNextAction = requiredElement(root, "#sample-next-action");
   const copyButton = requiredElement(root, "#copy-selected");
   const reviewButton = requiredElement(root, "#review-with-ai");
   const downloadButton = requiredElement(root, "#download-zip");
@@ -311,6 +370,33 @@ export function createDomView(root = document) {
     },
     getMode() {
       return mode.value;
+    },
+    setInput(value) {
+      source.value = value;
+    },
+    setMode(value) {
+      mode.value = value;
+    },
+    setSampleState(state) {
+      sampleLoadedStatus.hidden = state !== "loaded";
+      sampleNextAction.hidden = state !== "generated";
+    },
+    clearResult() {
+      results.hidden = true;
+      resultStatus.removeAttribute("data-outcome");
+      fileList.replaceChildren();
+      selectedFile.textContent = "";
+      filePreview.textContent = "";
+      copyButton.disabled = true;
+      reviewButton.disabled = true;
+      downloadButton.disabled = true;
+      navigator = null;
+    },
+    focusInput() {
+      source.focus();
+    },
+    focusGenerate() {
+      generateButton.focus();
     },
     getSelectedPath() {
       return navigator?.selected.path ?? null;
@@ -450,6 +536,8 @@ export function createBrowserDownload(root = document, urlApi = URL) {
 
 export function mountCompactorUi(root = document, dependencies) {
   const form = requiredElement(root, "#compactor-form");
+  const sampleButton = requiredElement(root, "#try-demonstrated-sample");
+  const ownInputButton = requiredElement(root, "#try-own-agents-md");
   const copyButton = requiredElement(root, "#copy-selected");
   const reviewButton = requiredElement(root, "#review-with-ai");
   const downloadButton = requiredElement(root, "#download-zip");
@@ -465,6 +553,12 @@ export function mountCompactorUi(root = document, dependencies) {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     controller.generate();
+  });
+  sampleButton.addEventListener("click", () => {
+    controller.loadDemonstratedSample();
+  });
+  ownInputButton.addEventListener("click", () => {
+    controller.tryOwnAgentsMd();
   });
   copyButton.addEventListener("click", () => {
     void controller.copySelected();

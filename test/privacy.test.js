@@ -4,6 +4,7 @@ import { test } from "node:test";
 
 import {
   CONTENT_SECURITY_POLICY,
+  DEMONSTRATED_SAMPLE_SOURCE_PATH,
   handleStaticRequest,
 } from "../server.js";
 import { compactAgentsMd } from "../src/compactor.js";
@@ -84,6 +85,20 @@ test("HTML and CSS use only local assets and no submitting form target", () => {
   assert.doesNotMatch(html, /<script[^>]+src="(?:https?:)?\/\//iu);
   assert.doesNotMatch(html, /<link[^>]+href="(?:https?:)?\/\//iu);
   assert.doesNotMatch(css, /@import|url\(\s*["']?(?:https?:)?\/\//iu);
+});
+
+test("the demonstrated sample is shipped locally in the initial page", async () => {
+  const page = await localRequest("GET", "/");
+  const source = read(DEMONSTRATED_SAMPLE_SOURCE_PATH);
+  const match = page.body.match(
+    /<script id="demonstrated-sample-source"[^>]*>([\s\S]*?)<\/script>/u,
+  );
+
+  assert.ok(match, "initial page includes the demonstrated sample data");
+  assert.equal(JSON.parse(match[1]), source);
+  assert.equal(source, read("evidence/public_rc_v0_1/BEFORE_AGENTS.md"));
+  assert.doesNotMatch(page.body, /__DEMONSTRATED_SAMPLE_SOURCE_JSON__/u);
+  assert.doesNotMatch(read("public/app.js"), /\bfetch\s*\(/u);
 });
 
 test("static server accepts only GET and HEAD, rejects content methods, and sends strict CSP", async () => {

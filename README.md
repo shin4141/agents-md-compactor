@@ -126,7 +126,9 @@ See the [Privacy boundary](#privacy-boundary) for the full limitations.
    ```
 
 7. Open <http://127.0.0.1:4173> in your browser.
-8. Paste one `AGENTS.md`, choose a mode, and select **Generate**.
+8. Select **Try the 30.9% sample**, then **Generate** to see the demonstrated
+   historical result. Select **Try your own AGENTS.md** when you are ready to
+   paste your file.
 
 ## v0.1 Promise
 
