@@ -1,5 +1,7 @@
 # AGENTS.md Compactor
 
+[![Apache-2.0](https://img.shields.io/badge/-Apache--2.0-4c566a.svg)](LICENSE) [![Local-only](https://img.shields.io/badge/-Local--only-2f6f4e.svg)](#privacy-boundary) [![No analytics](https://img.shields.io/badge/-No%20analytics-2f6f4e.svg)](#privacy-boundary) [![Reproducible evidence](https://img.shields.io/badge/-Reproducible%20evidence-4c566a.svg)](evidence/public_rc_v0_1/EVIDENCE.md)
+
 ## Your AGENTS.md does not have to be all-or-nothing.
 
 When an `AGENTS.md` grows over a long-lived repository, the usual choices are
@@ -113,6 +115,25 @@ See the [Privacy boundary](#privacy-boundary) for the full limitations.
 4. In Finder, locate the extracted `agents-md-compactor-main` folder. In
    Terminal, type `cd` followed by a space, drag that folder from Finder into
    the Terminal window, then press Return.
+
+### Terminal example
+
+```text
+Finder
+agents-md-compactor-main
+        │
+        │ drag this folder after typing: cd[space]
+        ▼
+Terminal
+cd /.../agents-md-compactor-main
+        │
+        │ press Return
+        ▼
+... agents-md-compactor-main %
+```
+
+The `/.../` path is illustrative only; if your Terminal prompt now ends with `agents-md-compactor-main %`, you are in the right folder—continue with Step 5.
+
 5. Confirm Node.js is available:
 
    ```sh
