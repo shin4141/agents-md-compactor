@@ -110,9 +110,9 @@ See the [Privacy boundary](#privacy-boundary) for the full limitations.
 1. Click **[Download ZIP](https://github.com/shin4141/agents-md-compactor/archive/refs/heads/main.zip)** to download this repository.
 2. Unzip the downloaded repository.
 3. Open Terminal.
-4. Change into the extracted `agents-md-compactor` folder. One simple option is
-   to type `cd` followed by a space, drag that folder into Terminal, and press
-   Return.
+4. In Finder, locate the extracted `agents-md-compactor-main` folder. In
+   Terminal, type `cd` followed by a space, drag that folder from Finder into
+   the Terminal window, then press Return.
 5. Confirm Node.js is available:
 
    ```sh
