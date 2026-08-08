@@ -1,5 +1,47 @@
 # Current Handoff
 
+## Current implementation status — sample-first activation
+
+This section is the current state and supersedes the older as-of snapshots
+below. Those historical records remain preserved for their own evidence states.
+
+- Canonical implementation base: `6ac61858d288754a144eb551b1af6d2326995d27`.
+- Working branch: `codex/sample-first-activation`.
+- Product change: Step 1 now offers the existing fixed historical evidence
+  source as the first-value path, selects Balanced, and sends generation
+  through the ordinary Compactor controller. A matching result offers a clear
+  return to a blank, focused user-input surface.
+- Sample identity: `evidence/public_rc_v0_1/BEFORE_AGENTS.md`; it is read from
+  the tracked local repository by the local server and is not duplicated,
+  fetched remotely, stored, or substituted with root `AGENTS.md`.
+- Fixed result: 20,664 to 14,284 Unicode code points; 6,380 / 30.9% active
+  reduction; 41/28/13 accounting; 13/13 moved bodies exact; 0 unique deleted;
+  10 reconnect routes; complete package 34,447 / +66.7%.
+- Verification: `npm test` PASS (111/111);
+  `node evidence/public_rc_v0_1/reproduce.mjs` PASS in all three modes;
+  `git diff --check` PASS; fresh local browser smoke PASS for sample load,
+  ordinary generation, observed result, and blank/ready own-input reset.
+- Historical evidence, expected generated artifacts, root `AGENTS.md`, and
+  classifier/routing behavior are unchanged.
+
+**Current Gate:** `HOLD — sample-first activation Draft PR review`.
+
+**Missing Closure:** bounded review and separately authorized merge only.
+
+**Next Authorized Action:** publish the completed bounded branch as one Draft
+PR, then stop. Do not merge without Shin's separate authorization.
+
+**Rollback or Recheck Path:** revert the bounded implementation commit, then
+rerun `npm test`, `node evidence/public_rc_v0_1/reproduce.mjs`, the local UI
+smoke, and `git diff --check`.
+
+**Prohibited Continuation:** no new benchmark or sample, classifier redesign,
+Fable rerun, routing optimization, repository scanning, release, or
+announcement work.
+
+**Completion Line:** `PASS — SAMPLE-FIRST ACTIVATION IMPLEMENTED, REPRODUCED,
+AND AWAITING BOUNDED DRAFT PR REVIEW`.
+
 ## Current repair status — source-relative reference preservation
 
 This section is the current state and supersedes the older as-of snapshots

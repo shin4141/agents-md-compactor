@@ -15,7 +15,7 @@
 
         <nav aria-label="Compaction workflow">
           <ol class="workflow-steps">
-            <li><span>1</span>Paste AGENTS.md</li>
+            <li><span>1</span>Try sample or paste AGENTS.md</li>
             <li><span>2</span>Choose a mode</li>
             <li><span>3</span>Generate</li>
             <li><span>4</span>Inspect the result</li>
@@ -35,6 +35,15 @@
         </div>
 
         <form id="compactor-form">
+          <aside class="sample-first" aria-labelledby="sample-first-heading">
+            <p class="eyebrow">Demonstrated historical sample</p>
+            <h3 id="sample-first-heading">New here? Try the demonstrated sample first.</h3>
+            <p>See a real historical AGENTS.md that produced:</p>
+            <p class="sample-result"><strong>20,664 → 14,284</strong><br>30.9% less active AGENTS.md text</p>
+            <p>Generate it locally, inspect the routed result, then try your own file.</p>
+            <button id="try-demonstrated-sample" class="primary-button" type="button">Try the 30.9% sample</button>
+          </aside>
+
           <label for="source-agents-md">AGENTS.md source</label>
           <textarea
             id="source-agents-md"
@@ -77,6 +86,7 @@
           <div class="generate-action">
             <span class="step-number" aria-hidden="true">3</span>
             <button class="primary-button" type="submit">Generate</button>
+            <p id="sample-loaded-status" class="sample-loaded-status" role="status" aria-live="polite" hidden>Demonstrated historical sample loaded. Balanced selected. Select Generate.</p>
           </div>
         </form>
 
@@ -98,6 +108,11 @@
           <h3 id="outcome-heading"></h3>
           <p id="outcome-explanation"></p>
         </div>
+
+        <aside id="sample-next-action" class="sample-next-action" hidden>
+          <p>You have seen the demonstrated historical result. Ready to use your own file?</p>
+          <button id="try-own-agents-md" class="primary-button" type="button">Try your own AGENTS.md</button>
+        </aside>
 
         <div class="summary-grid">
           <div class="primary-metric">
@@ -225,6 +240,7 @@
       </section>
     </main>
 
+    <script id="demonstrated-sample-source" type="application/json" data-source-path="evidence/public_rc_v0_1/BEFORE_AGENTS.md">__DEMONSTRATED_SAMPLE_SOURCE_JSON__</script>
     <script type="module" src="/app.js"></script>
   </body>
 </html>

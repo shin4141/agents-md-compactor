@@ -126,17 +126,19 @@ See the [Privacy boundary](#privacy-boundary) for the full limitations.
    ```
 
 7. Open <http://127.0.0.1:4173> in your browser.
-8. Paste one `AGENTS.md`, choose a mode, and select **Generate**.
+8. Select **Try the 30.9% sample**, then **Generate** to see the demonstrated
+   historical result. Select **Try your own AGENTS.md** when you are ready to
+   paste your file.
 
 ## v0.1 Promise
 
-Paste one long `AGENTS.md`, select a mode, and inspect a generated package
-before choosing whether to use it.
+Try the demonstrated historical sample first and inspect its generated result.
+Then paste one `AGENTS.md` if you want to use the tool on your repository.
 
-1. Paste `AGENTS.md`
-2. Compact
-3. Inspect the active file, guides, and move map
-4. Download ZIP or copy the review package for independent AI review
+1. Try the demonstrated historical sample
+2. Inspect the generated active file, guides, and move map
+3. Then paste your own `AGENTS.md` if you want to use the tool on your repository
+4. Download ZIP or copy the review package as appropriate
 
 <p align="center">
   <a href="evidence/public_rc_v0_1/EVIDENCE.md">

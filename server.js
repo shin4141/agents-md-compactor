@@ -4,6 +4,10 @@ import { pathToFileURL } from "node:url";
 
 export const DEFAULT_HOST = "127.0.0.1";
 export const DEFAULT_PORT = 4173;
+export const DEMONSTRATED_SAMPLE_SOURCE_PATH =
+  "evidence/public_rc_v0_1/BEFORE_AGENTS.md";
+const DEMONSTRATED_SAMPLE_SOURCE_PLACEHOLDER =
+  "__DEMONSTRATED_SAMPLE_SOURCE_JSON__";
 export const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
   "script-src 'self'",
@@ -33,6 +37,30 @@ const routes = new Map([
     ["./src/compactor.js", "text/javascript; charset=utf-8"],
   ],
 ]);
+
+function serializeHtmlData(value) {
+  return JSON.stringify(value)
+    .replaceAll("<", "\\u003c")
+    .replaceAll("\u2028", "\\u2028")
+    .replaceAll("\u2029", "\\u2029");
+}
+
+async function readRouteBody(relativePath) {
+  const body = await readFile(new URL(relativePath, import.meta.url));
+  if (relativePath !== "./public/index.html") {
+    return body;
+  }
+
+  const sampleSource = await readFile(
+    new URL(`./${DEMONSTRATED_SAMPLE_SOURCE_PATH}`, import.meta.url),
+    "utf8",
+  );
+  const html = body.toString("utf8").replace(
+    DEMONSTRATED_SAMPLE_SOURCE_PLACEHOLDER,
+    serializeHtmlData(sampleSource),
+  );
+  return Buffer.from(html, "utf8");
+}
 
 function responseHeaders(extra = {}) {
   return {
@@ -78,7 +106,7 @@ export async function handleStaticRequest(
 
   try {
     const [relativePath, contentType] = route;
-    const body = await readFile(new URL(relativePath, import.meta.url));
+    const body = await readRouteBody(relativePath);
     response.writeHead(
       200,
       responseHeaders({
