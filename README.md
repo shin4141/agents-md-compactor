@@ -1,5 +1,7 @@
 # AGENTS.md Compactor
 
+[![Apache-2.0](https://img.shields.io/badge/-Apache--2.0-4c566a.svg)](LICENSE) [![Local-only](https://img.shields.io/badge/-Local--only-2f6f4e.svg)](#privacy-boundary) [![No analytics](https://img.shields.io/badge/-No%20analytics-2f6f4e.svg)](#privacy-boundary) [![Reproducible evidence](https://img.shields.io/badge/-Reproducible%20evidence-4c566a.svg)](evidence/public_rc_v0_1/EVIDENCE.md)
+
 ## Your AGENTS.md does not have to be all-or-nothing.
 
 When an `AGENTS.md` grows over a long-lived repository, the usual choices are
